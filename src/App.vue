@@ -5,7 +5,9 @@ import { getImages } from './api/images.get'
 import { getState } from './api/state.get'
 import { patchState } from './api/state.patch'
 import GlobalConfiguration from './components/GlobalConfiguration.vue'
+import SettingsMusic from './components/settingGroup/SettingsMusic.vue'
 import TheCarousel from './components/TheCarousel.vue'
+import TheDrawer from './components/TheDrawer.vue'
 import TheHeader from './components/TheHeader.vue'
 import { CAROUSEL_ITEMS } from './constants/CarouselItems'
 import { Mode } from './constants/enums/Mode'
@@ -58,6 +60,14 @@ getImages().then((newImages) => {
         @change="onChangeBrightness"
       />
     </div>
+    <TheDrawer v-model:open="isDrawerOpen">
+      <template v-if="currentCarouselIndex >= 0">
+        <SettingsMusic
+          v-if="currentCarouselIndex === 1"
+          :fullscreen="store.state.music.fullscreen!"
+        />
+      </template>
+    </TheDrawer>
   </div>
   <div v-else class="flex items-center justify-center size-screen">
     <LoaderCircle class="size-5 animate-spin" />
