@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import preact from '@preact/preset-vite'
 import tailwindcss from '@tailwindcss/vite'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 const endpointData = {
   mockUrl: 'http://localhost:3000',
@@ -8,7 +8,7 @@ const endpointData = {
 }
 
 export default defineConfig({
-  plugins: [preact(), tailwindcss()],
+  plugins: [vue(), tailwindcss()],
   server: {
     proxy: endpointData.endpoints.reduce((accumulator, currentValue) => {
       accumulator[`/api/${currentValue}`] = { target: endpointData.mockUrl }
