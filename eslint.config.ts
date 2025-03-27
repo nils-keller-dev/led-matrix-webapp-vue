@@ -1,4 +1,12 @@
 import prettierConfig from '@vue/eslint-config-prettier'
 import pluginVue from 'eslint-plugin-vue'
+import {
+  defineConfigWithVueTs,
+  vueTsConfigs
+} from '@vue/eslint-config-typescript'
 
-export default [...pluginVue.configs['flat/recommended'], prettierConfig]
+export default defineConfigWithVueTs(
+  ...pluginVue.configs['flat/recommended'],
+  vueTsConfigs.recommended,
+  prettierConfig
+)
