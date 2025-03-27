@@ -1,4 +1,4 @@
-import { State } from '../constants/interfaces/State'
+import type { State } from '../constants/interfaces/State'
 import { fetchWithCheck } from '../utils/fetchWithCheck'
 
 export const getState = (): Promise<State> => {

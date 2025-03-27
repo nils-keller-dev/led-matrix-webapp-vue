@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import emblaCarouselVue from 'embla-carousel-vue'
-import { ref, watch } from 'vue'
-import { Mode } from '../constants/enums/Mode'
 import debounceFunction from 'debounce-fn'
-import IconButton from './IconButton.vue'
+import emblaCarouselVue from 'embla-carousel-vue'
 import { ArrowLeft, ArrowRight } from 'lucide-vue-next'
+import { onMounted, ref } from 'vue'
+import { Mode } from '../constants/enums/Mode'
+import IconButton from './IconButton.vue'
 
 type CarouselItem = {
   title: string
@@ -55,21 +55,17 @@ const onSelect = () => {
   debouncedOnChange()
 }
 
-watch(
-  () => emblaApi,
-  (emblaApi) => {
-    if (!emblaApi.value) return
+onMounted(() => {
+  if (!emblaApi.value) return
 
-    scrollSnaps.value = emblaApi.value.scrollSnapList()
+  scrollSnaps.value = emblaApi.value.scrollSnapList()
 
-    emblaApi.value?.scrollTo(props.initialValue, true)
-    selectedIndex.value = emblaApi.value?.selectedScrollSnap()
-    emit('change', selectedIndex.value, true)
+  emblaApi.value?.scrollTo(props.initialValue, true)
+  selectedIndex.value = emblaApi.value?.selectedScrollSnap()
+  emit('change', selectedIndex.value, true)
 
-    emblaApi.value?.on('select', onSelect)
-  },
-  { immediate: true }
-)
+  emblaApi.value?.on('select', onSelect)
+})
 </script>
 
 <template>

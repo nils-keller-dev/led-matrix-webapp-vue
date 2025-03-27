@@ -1,6 +1,10 @@
-import { signal } from '@preact/signals'
-import { State } from '../constants/interfaces/State'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import type { State } from '../constants/interfaces/State'
 
-export const state = signal<State | null>(null)
+export const useStore = defineStore('counter', () => {
+  const state = ref<State | null>(null)
+  const images = ref<string[] | null>(null)
 
-export const images = signal<string[] | null>(null)
+  return { state, images }
+})
