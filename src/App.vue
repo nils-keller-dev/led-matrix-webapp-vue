@@ -5,7 +5,8 @@ import { getImages } from './api/images.get'
 import { getState } from './api/state.get'
 import { patchState } from './api/state.patch'
 import GlobalConfiguration from './components/GlobalConfiguration.vue'
-import SettingsMusic from './components/settingGroup/SettingsMusic.vue'
+import SettingsImage from './components/SettingsImage.vue'
+import SettingsMusic from './components/SettingsMusic.vue'
 import TheCarousel from './components/TheCarousel.vue'
 import TheDrawer from './components/TheDrawer.vue'
 import TheHeader from './components/TheHeader.vue'
@@ -65,6 +66,10 @@ getImages().then((newImages) => {
         <SettingsMusic
           v-if="currentCarouselIndex === 1"
           :fullscreen="store.state.music.fullscreen!"
+        />
+        <SettingsImage
+          v-else-if="currentCarouselIndex === 2"
+          :image="store.state.image.image!"
         />
       </template>
     </TheDrawer>
