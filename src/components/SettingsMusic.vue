@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { patchState } from '../../api/state.patch'
-import { useStore } from '../../store/store'
-import InputWrapper from '../InputWrapper.vue'
-import ToggleSwitch from '../ToggleSwitch.vue'
+import { patchState } from '../api/state.patch'
+import { useStore } from '../store/store'
+import InputWrapper from './InputWrapper.vue'
+import ToggleSwitch from './ToggleSwitch.vue'
 
 defineProps<{
   fullscreen: boolean
