@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { getImages } from './api/images.get'
 import { getState } from './api/state.get'
 import { patchState } from './api/state.patch'
+import GlobalConfiguration from './components/GlobalConfiguration.vue'
 import TheCarousel from './components/TheCarousel.vue'
 import TheHeader from './components/TheHeader.vue'
 import { CAROUSEL_ITEMS } from './constants/CarouselItems'
@@ -24,6 +25,10 @@ const onChangeCarouselIndex = (index: number, initial?: boolean) => {
 
   if (initial) return
   patchState({ global: { mode: Mode[CAROUSEL_ITEMS[index].id] } })
+}
+
+const onChangeBrightness = (brightness: number) => {
+  patchState({ global: { brightness } })
 }
 
 getState().then((newState) => {
@@ -47,6 +52,10 @@ getImages().then((newImages) => {
         :initial-value="Mode[store.state?.global.mode as keyof typeof Mode]"
         @change="onChangeCarouselIndex"
         @click-settings="onClickCarouselSettings"
+      />
+      <GlobalConfiguration
+        :brightness="store.state.global.brightness!"
+        @change="onChangeBrightness"
       />
     </div>
   </div>
