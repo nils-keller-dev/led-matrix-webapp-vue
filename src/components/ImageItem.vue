@@ -48,7 +48,7 @@ const onError = () => {
     "
     style="-webkit-touch-callout: none"
     @click="emit('select', image)"
-    @contextMen.prevent
+    @contextmenu.prevent
   >
     <div
       v-if="isLoading"
