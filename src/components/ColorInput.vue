@@ -1,0 +1,62 @@
+<script lang="ts" setup>
+import debounceFunction from 'debounce-fn'
+import { ref, useTemplateRef, watchEffect } from 'vue'
+import { fetchColorName } from '../utils/fetchColorName'
+import TheSkeleton from './TheSkeleton.vue'
+
+const props = defineProps<{
+  initialValue: string
+  id: string
+}>()
+
+const emit = defineEmits<{
+  change: [value: string]
+}>()
+
+const colorInput = useTemplateRef<HTMLInputElement>('colorInput')
+
+const displayColor = ref(props.initialValue)
+const colorValue = ref(props.initialValue)
+const colorName = ref('')
+
+const onColorChange = () => {
+  const color = colorInput.value?.value ?? ''
+  if (!color || color === colorValue.value) return
+
+  displayColor.value = color
+  colorName.value = ''
+  debouncedOnChange(color)
+}
+
+const debouncedOnChange = debounceFunction(
+  (color: string) => {
+    colorValue.value = color
+    emit('change', color)
+  },
+  { wait: 500 }
+)
+
+watchEffect(() => {
+  fetchColorName(colorValue.value).then((name) => (colorName.value = name))
+})
+</script>
+
+<template>
+  <div class="flex gap-3">
+    <input
+      :id
+      ref="colorInput"
+      aria-label="color picker"
+      type="color"
+      :value="colorValue"
+      class="opacity-0 size-0 absolute"
+      @change="onColorChange"
+    />
+    <TheSkeleton v-if="!colorName" class="w-25 h-5" />
+    <span class="text-primary">{{ colorName }}</span>
+    <div
+      class="size-6 rounded-md border border-secondary"
+      :style="`background-color: ${displayColor}`"
+    />
+  </div>
+</template>

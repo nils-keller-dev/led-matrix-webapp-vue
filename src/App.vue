@@ -5,6 +5,7 @@ import { getImages } from './api/images.get'
 import { getState } from './api/state.get'
 import { patchState } from './api/state.patch'
 import GlobalConfiguration from './components/GlobalConfiguration.vue'
+import SettingsClock from './components/SettingsClock.vue'
 import SettingsImage from './components/SettingsImage.vue'
 import SettingsMusic from './components/SettingsMusic.vue'
 import TheCarousel from './components/TheCarousel.vue'
@@ -63,8 +64,14 @@ getImages().then((newImages) => {
     </div>
     <TheDrawer v-model:open="isDrawerOpen">
       <template v-if="currentCarouselIndex >= 0">
+        <SettingsClock
+          v-if="currentCarouselIndex === 0"
+          :color="store.state.clock.color!"
+          :background-color="store.state.clock.backgroundColor!"
+          :background-brightness="store.state.clock.backgroundBrightness!"
+        />
         <SettingsMusic
-          v-if="currentCarouselIndex === 1"
+          v-else-if="currentCarouselIndex === 1"
           :fullscreen="store.state.music.fullscreen!"
         />
         <SettingsImage
