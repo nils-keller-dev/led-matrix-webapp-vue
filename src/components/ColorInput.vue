@@ -36,7 +36,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex gap-3">
+  <div class="flex gap-3 items-center">
     <input
       :id
       ref="colorInput"
@@ -47,7 +47,7 @@ watchEffect(() => {
       @change="onColorChange"
     />
     <TheSkeleton v-if="!colorName" class="w-25 h-5" />
-    <span class="text-primary">{{ colorName }}</span>
+    <span v-else class="text-primary">{{ colorName }}</span>
     <div
       class="size-6 rounded-md border border-secondary"
       :style="`background-color: ${displayColor}`"

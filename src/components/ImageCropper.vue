@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { LoaderCircle } from 'lucide-vue-next'
 import { ref, useTemplateRef } from 'vue'
 import { Cropper } from 'vue-advanced-cropper'
 import 'vue-advanced-cropper/dist/style.css'
 import { downscaleCanvas } from '../utils/downscaleCanvas'
 import TheButton from './TheButton.vue'
+import TheSkeleton from './TheSkeleton.vue'
 
 type DefaultSize = {
   imageSize: {
@@ -50,9 +50,9 @@ const onConfirm = () => {
 <template>
   <div>
     <div class="aspect-square bg-background w-full relative">
-      <LoaderCircle
+      <TheSkeleton
         v-if="!isCropperReady"
-        class="size-5 animate-spin absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="size-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       />
       <Cropper
         :key="src"
