@@ -3,13 +3,12 @@ import { Plus } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { postImage } from '../api/image.post'
 import { useStore } from '../store/store'
-import TheButton from './TheButton.vue'
+import ImageCropper from './ImageCropper.vue'
 import TheDialog from './TheDialog.vue'
 
 const isModalOpen = ref(false)
 const imgSrc = ref<string>('')
 const fileName = ref<string>('')
-const croppedImageFile = ref<File | undefined>(undefined)
 
 const store = useStore()
 
@@ -61,14 +60,6 @@ const uploadFile = (file?: File) => {
   imgSrc.value = `api/image/${fileName.value}`
   isModalOpen.value = false
 }
-
-const onChangeCrop = (file: File) => {
-  croppedImageFile.value = file
-}
-
-const onClickConfirm = () => {
-  uploadFile(croppedImageFile.value)
-}
 </script>
 
 <template>
@@ -85,17 +76,11 @@ const onClickConfirm = () => {
     />
     <Plus />
     <TheDialog v-model:open="isModalOpen">
-      <div class="flex flex-col gap-4">
-        <!-- <ImageCropper src={imgSrc.value} on-change-crop={onChangeCrop} /> -->
-        <div class="flex justify-between">
-          <TheButton
-            text="Cancel"
-            is-secondary
-            @click="() => (isModalOpen = false)"
-          />
-          <TheButton text="Confirm" @click="onClickConfirm" />
-        </div>
-      </div>
+      <ImageCropper
+        :src="imgSrc"
+        @confirm="uploadFile"
+        @cancel="() => (isModalOpen = false)"
+      />
     </TheDialog>
   </div>
 </template>
