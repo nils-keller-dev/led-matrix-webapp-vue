@@ -91,8 +91,8 @@ const updateColor = (color: string) => {
     <InputWrapper title="Color" html-for="color">
       <ColorInput
         id="color"
-        :initial-value="rgbToHex(color)"
-        @change="updateColor"
+        :model-value="rgbToHex(color)"
+        @update:model-value="updateColor"
       />
     </InputWrapper>
   </div>

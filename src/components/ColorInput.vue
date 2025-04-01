@@ -4,19 +4,14 @@ import { ref, useTemplateRef, watchEffect } from 'vue'
 import { fetchColorName } from '../utils/fetchColorName'
 import TheSkeleton from './TheSkeleton.vue'
 
-const props = defineProps<{
-  initialValue: string
+defineProps<{
   id: string
-}>()
-
-const emit = defineEmits<{
-  change: [value: string]
 }>()
 
 const colorInput = useTemplateRef<HTMLInputElement>('colorInput')
 
-const displayColor = ref(props.initialValue)
-const colorValue = ref(props.initialValue)
+const colorValue = defineModel<string>({ required: true })
+const displayColor = ref(colorValue.value)
 const colorName = ref('')
 
 const onColorChange = () => {
@@ -31,7 +26,6 @@ const onColorChange = () => {
 const debouncedOnChange = debounceFunction(
   (color: string) => {
     colorValue.value = color
-    emit('change', color)
   },
   { wait: 500 }
 )

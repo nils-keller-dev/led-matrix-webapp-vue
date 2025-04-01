@@ -40,8 +40,8 @@ const updateBrightness = (backgroundBrightness: number) => {
     <InputWrapper title="Text" html-for="text">
       <ColorInput
         id="text"
-        :initial-value="rgbToHex(color)"
-        @change="updateColor"
+        :model-value="rgbToHex(color)"
+        @update:model-value="updateColor"
       />
     </InputWrapper>
 
@@ -53,8 +53,8 @@ const updateBrightness = (backgroundBrightness: number) => {
         <span class="text-muted-foreground">Background</span>
         <ColorInput
           id="background"
-          :initial-value="rgbToHex(backgroundColor)"
-          @change="updateBackgroundColor"
+          :model-value="rgbToHex(backgroundColor)"
+          @update:model-value="updateBackgroundColor"
         />
       </div>
       <div class="flex justify-between w-full items-center px-4 py-3 gap-4">
