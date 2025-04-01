@@ -2,25 +2,14 @@
 import { Sun, SunDim } from 'lucide-vue-next'
 import TheSlider from './TheSlider.vue'
 
-defineProps<{
-  brightness: number
-}>()
-
-defineEmits<{
-  change: [value: number]
-}>()
+const brightness = defineModel<number>({ required: true })
 </script>
 
 <template>
   <div className="flex flex-col gap-5 w-full p-7">
     <div className="flex gap-3 flex-row">
       <SunDim class="text-muted-foreground shrink-0" />
-      <TheSlider
-        :min="3"
-        :max="100"
-        :initial-value="brightness"
-        @change="$emit('change', $event)"
-      />
+      <TheSlider v-model="brightness" :min="3" :max="100" />
       <Sun class="text-muted-foreground shrink-0" />
     </div>
   </div>

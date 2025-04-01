@@ -59,8 +59,8 @@ getImages().then((newImages) => {
         @click-settings="onClickCarouselSettings"
       />
       <GlobalConfiguration
-        :brightness="store.state.global.brightness!"
-        @change="onChangeBrightness"
+        :model-value="store.state.global.brightness!"
+        @update:model-value="onChangeBrightness"
       />
     </div>
     <TheDrawer v-model:open="isDrawerOpen">

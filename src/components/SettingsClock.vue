@@ -63,8 +63,8 @@ const updateBrightness = (backgroundBrightness: number) => {
           <TheSlider
             :min="0"
             :max="100"
-            :initial-value="backgroundBrightness"
-            @change="updateBrightness"
+            :model-value="backgroundBrightness"
+            @update:model-value="updateBrightness"
           />
         </div>
       </div>

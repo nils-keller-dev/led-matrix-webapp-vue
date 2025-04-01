@@ -1,27 +1,17 @@
 <script setup lang="ts">
 import { computed, ref, useTemplateRef } from 'vue'
 
-const props = withDefaults(
-  defineProps<{
-    min: number
-    max: number
-    initialValue?: number
-  }>(),
-  {
-    initialValue: 0
-  }
-)
-
-const emit = defineEmits<{
-  change: [value: number]
+const props = defineProps<{
+  min: number
+  max: number
 }>()
 
-const value = ref(props.initialValue)
+const modelValue = defineModel<number>({ required: true })
+const currentValue = ref(modelValue.value)
 const sliderRef = useTemplateRef<HTMLSpanElement>('sliderRef')
-const lastReportedValue = ref(props.initialValue)
 
 const percent = computed(
-  () => ((value.value - props.min) / (props.max - props.min)) * 100
+  () => ((currentValue.value - props.min) / (props.max - props.min)) * 100
 )
 const dynamicOffset = computed(() => -20 * (percent.value / 100) + 10)
 
@@ -40,7 +30,7 @@ const handleDrag = (e: PointerEvent) => {
     )
   )
 
-  value.value = newValue
+  currentValue.value = newValue
 }
 
 const startDrag = (event: PointerEvent) => {
@@ -53,9 +43,8 @@ const stopDrag = () => {
   removeEventListener('pointermove', handleDrag)
   removeEventListener('pointerup', stopDrag)
 
-  if (value.value !== lastReportedValue.value) {
-    emit('change', value.value)
-    lastReportedValue.value = value.value
+  if (currentValue.value !== modelValue.value) {
+    modelValue.value = currentValue.value
   }
 }
 </script>

@@ -73,8 +73,8 @@ const updateColor = (color: string) => {
         <TheSlider
           :min="1"
           :max="5"
-          :initial-value="size"
-          @change="updateSize"
+          :model-value="size"
+          @update:model-value="updateSize"
         />
       </div>
     </InputWrapper>
@@ -83,8 +83,8 @@ const updateColor = (color: string) => {
         <TheSlider
           :min="0"
           :max="10"
-          :initial-value="speed"
-          @change="updateSpeed"
+          :model-value="speed"
+          @update:model-value="updateSpeed"
         />
       </div>
     </InputWrapper>
