@@ -65,8 +65,8 @@ const updateColor = (color: string) => {
     </div>
     <TextArea
       placeholder="Enter your text here"
-      :initial-value="text"
-      @change="updateText"
+      :model-value="text"
+      @update:model-value="updateText"
     />
     <InputWrapper title="Size">
       <div class="w-55">
