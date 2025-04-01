@@ -4,12 +4,9 @@ import type { FunctionalComponent } from 'vue'
 defineProps<{
   icons: Array<FunctionalComponent>
   values: Array<string>
-  selected: string
 }>()
 
-defineEmits<{
-  change: [value: string]
-}>()
+const selected = defineModel<string>({ required: true })
 </script>
 
 <template>
@@ -22,11 +19,11 @@ defineEmits<{
     >
       <input
         :id="value"
+        v-model="selected"
         type="radio"
-        class="hidden peer"
-        :checked="selected == value"
+        class="hidden"
         name="align"
-        @change="$emit('change', value)"
+        :value
       />
       <component :is="icons[index]" />
     </label>

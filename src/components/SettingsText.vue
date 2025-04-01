@@ -59,8 +59,8 @@ const updateColor = (color: string) => {
       <RadioGroup
         :icons="[AlignLeft, AlignCenter, AlignJustify]"
         :values="Object.values(TextAlign)"
-        :selected="align"
-        @change="updateAlign"
+        :model-value="align"
+        @update:model-value="updateAlign"
       />
     </div>
     <TextArea
