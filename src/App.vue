@@ -15,6 +15,7 @@ import TheHeader from './components/TheHeader.vue'
 import { CAROUSEL_ITEMS } from './constants/CarouselItems'
 import { Mode } from './constants/enums/Mode'
 import { useStore } from './store/store'
+import { usePreventBackNavigation } from './hooks/usePreventBackNavigation'
 
 const store = useStore()
 
@@ -42,6 +43,10 @@ getState().then((newState) => {
 
 getImages().then((newImages) => {
   store.images = newImages
+})
+
+usePreventBackNavigation(() => {
+  isDrawerOpen.value = false
 })
 </script>
 

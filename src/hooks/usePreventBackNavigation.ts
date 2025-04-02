@@ -1,7 +1,7 @@
-import { useEffect } from 'preact/hooks'
+import { onMounted, onBeforeUnmount } from 'vue'
 
-export const usePreventBackNavigation = (onBackPress: () => void) => {
-  useEffect(() => {
+export function usePreventBackNavigation(onBackPress: () => void) {
+  onMounted(() => {
     window.history.pushState(null, '', window.location.href)
 
     const handlePopState = () => {
@@ -13,8 +13,8 @@ export const usePreventBackNavigation = (onBackPress: () => void) => {
 
     window.addEventListener('popstate', handlePopState)
 
-    return () => {
+    onBeforeUnmount(() => {
       window.removeEventListener('popstate', handlePopState)
-    }
-  }, [onBackPress])
+    })
+  })
 }
