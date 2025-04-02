@@ -10,16 +10,18 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: 'jsdom',
+      reporters: ['html'],
       setupFiles: './vitest.setup.ts',
       coverage: {
-        provider: 'istanbul',
+        enabled: true,
         exclude: [
           '**/enums/**',
           '**/interfaces/**',
           '**/constants/**',
           '**/main.ts',
           ...coverageConfigDefaults.exclude
-        ]
+        ],
+        provider: 'istanbul'
       }
     }
   })
