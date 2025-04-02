@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiToggle > matches snapshot 1`] = `
+"<div><label for="customId">
+    <div class="h-6 w-11 rounded-full p-0.5 transition-colors bg-secondary">
+      <div class="bg-background size-5 rounded-full transition-transform translate-x-0"></div>
+    </div>
+  </label><input id="customId" class="hidden" type="checkbox"></div>"
+`;
