@@ -41,8 +41,8 @@ const updateImage = (image: string) => {
 </script>
 
 <template>
-  <div className="overflow-y-scroll">
-    <div className="grid grid-cols-3 gap-3">
+  <div class="overflow-y-scroll">
+    <div class="grid grid-cols-3 gap-3">
       <ImageItem
         v-for="(imageName, index) in store.images"
         :key="index"

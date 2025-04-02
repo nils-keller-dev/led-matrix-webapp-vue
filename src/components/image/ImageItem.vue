@@ -50,14 +50,11 @@ const onError = () => {
     @click="emit('select', image)"
     @contextmenu.prevent
   >
-    <div
-      v-if="isLoading"
-      className="size-full flex justify-center items-center"
-    >
-      <LoaderCircle class-name="size-5 animate-spin" />
+    <div v-if="isLoading" class="size-full flex justify-center items-center">
+      <LoaderCircle class="size-5 animate-spin" />
     </div>
-    <div v-if="isError" className="size-full flex justify-center items-center">
-      <ImageOff class-name="size-5 text-muted-foreground" />
+    <div v-if="isError" class="size-full flex justify-center items-center">
+      <ImageOff class="size-5 text-muted-foreground" />
     </div>
     <img
       :alt="image"
