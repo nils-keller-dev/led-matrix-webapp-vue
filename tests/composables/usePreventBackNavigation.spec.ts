@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/preact'
-import { afterEach, beforeAll, describe, expect, it, test, vi } from 'vitest'
-import { usePreventBackNavigation } from '../../src/hooks/usePreventBackNavigation'
+import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
+import { usePreventBackNavigation } from '../../src/composables/usePreventBackNavigation'
+import { withSetup } from '../../test-utils'
 
 describe('usePreventBackNavigation', () => {
   beforeAll(() => {
@@ -8,14 +8,14 @@ describe('usePreventBackNavigation', () => {
     vi.spyOn(history, 'pushState').mockImplementation(vi.fn())
   })
 
-  afterEach(() => {
-    vi.clearAllMocks()
+  afterAll(() => {
+    vi.restoreAllMocks()
   })
 
-  test('pushes state to history on mount', () => {
+  test('pushes state to history instantly', () => {
     vi.spyOn(window, 'addEventListener').mockImplementationOnce(vi.fn())
 
-    renderHook(() => usePreventBackNavigation(() => {}))
+    withSetup(usePreventBackNavigation)
     expect(history.pushState).toHaveBeenCalledWith(
       null,
       '',
@@ -25,7 +25,7 @@ describe('usePreventBackNavigation', () => {
 
   test('calls onBackPress when back navigation is attempted', () => {
     const onBackPress = vi.fn()
-    renderHook(() => usePreventBackNavigation(onBackPress))
+    withSetup(() => usePreventBackNavigation(onBackPress))
 
     window.dispatchEvent(new PopStateEvent('popstate'))
 
@@ -36,8 +36,8 @@ describe('usePreventBackNavigation', () => {
   test('cleans up the event listener on unmount', () => {
     vi.spyOn(window, 'addEventListener').mockImplementationOnce(vi.fn())
 
-    const { unmount } = renderHook(() => usePreventBackNavigation(() => {}))
-    unmount()
+    const { app } = withSetup(usePreventBackNavigation)
+    app.unmount()
     expect(window.removeEventListener).toHaveBeenCalledWith(
       'popstate',
       expect.any(Function)

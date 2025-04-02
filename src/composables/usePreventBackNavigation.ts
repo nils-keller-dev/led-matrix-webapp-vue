@@ -1,9 +1,9 @@
 import { onBeforeUnmount } from 'vue'
 
-export function usePreventBackNavigation(onBackPress: () => void) {
+export function usePreventBackNavigation(onBackPress?: () => void) {
   const handlePopState = () => {
     window.history.pushState(null, '', window.location.href)
-    onBackPress()
+    onBackPress?.()
   }
 
   window.history.pushState(null, '', window.location.href)
