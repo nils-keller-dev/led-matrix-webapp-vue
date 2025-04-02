@@ -43,4 +43,15 @@ describe('UiTextArea', () => {
 
     expect(blur).toHaveBeenCalledOnce()
   })
+
+  test('stops propagation on pointer move', () => {
+    const wrapper = shallowMount(UiTextArea, mountingOptions)
+
+    const event = new MouseEvent('pointermove')
+    const stopPropagation = vi.fn()
+    event.stopPropagation = stopPropagation
+
+    wrapper.find('textarea').element.dispatchEvent(event)
+    expect(stopPropagation).toHaveBeenCalledOnce()
+  })
 })
