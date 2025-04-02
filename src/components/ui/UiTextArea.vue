@@ -14,7 +14,7 @@ const onKeyDown = (event: KeyboardEvent) => {
 <template>
   <textarea
     v-model.lazy="value"
-    :placeholder="placeholder"
+    :placeholder
     enterkeyhint="send"
     class="bg-background text-primary border-secondary h-[130px] w-full resize-none rounded-md border px-4 py-3 outline-hidden"
     @keydown.enter.stop.prevent="onKeyDown"
