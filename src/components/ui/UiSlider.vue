@@ -53,7 +53,7 @@ const stopDrag = () => {
   <span
     ref="sliderRef"
     class="relative flex items-center w-full touch-none h-6"
-    @pointerdown="startDrag"
+    @pointerdown.stop="startDrag"
   >
     <span class="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
       <span class="absolute h-full bg-primary" :style="`width: ${percent}%`" />
