@@ -52,18 +52,18 @@ const stopDrag = () => {
 <template>
   <span
     ref="sliderRef"
-    class="relative flex items-center w-full touch-none h-6"
+    class="relative flex h-6 w-full touch-none items-center"
     @pointerdown.stop="startDrag"
   >
-    <span class="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
-      <span class="absolute h-full bg-primary" :style="`width: ${percent}%`" />
+    <span class="bg-secondary relative h-2 w-full overflow-hidden rounded-full">
+      <span class="bg-primary absolute h-full" :style="`width: ${percent}%`" />
     </span>
     <span
       :style="`left: calc(${percent}% + ${dynamicOffset}px)`"
       class="absolute -translate-x-1/2"
     >
       <span
-        class="block h-5 w-5 rounded-full border-2 border-primary bg-background"
+        class="border-primary bg-background block h-5 w-5 rounded-full border-2"
       />
     </span>
   </span>

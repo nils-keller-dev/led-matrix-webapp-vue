@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <button
-    class="outline-hidden border rounded-md px-4 py-2"
+    class="rounded-md border px-4 py-2 outline-hidden"
     :class="
       isSecondary ? 'border-muted-foreground' : 'bg-primary text-background'
     "

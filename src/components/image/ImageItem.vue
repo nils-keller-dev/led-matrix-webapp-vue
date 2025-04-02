@@ -40,21 +40,21 @@ const onError = () => {
 <template>
   <div
     ref="el"
-    class="w-full aspect-square rounded-xl overflow-hidden relative outline"
+    class="relative aspect-square w-full overflow-hidden rounded-xl outline"
     :class="
       isSelected
-        ? 'outline-2 outline-primary -outline-offset-2'
-        : 'outline-1 outline-secondary -outline-offset-1'
+        ? 'outline-primary outline-2 -outline-offset-2'
+        : 'outline-secondary outline-1 -outline-offset-1'
     "
     style="-webkit-touch-callout: none"
     @click="emit('select', image)"
     @contextmenu.prevent
   >
-    <div v-if="isLoading" class="size-full flex justify-center items-center">
+    <div v-if="isLoading" class="flex size-full items-center justify-center">
       <LoaderCircle class="size-5 animate-spin" />
     </div>
-    <div v-if="isError" class="size-full flex justify-center items-center">
-      <ImageOff class="size-5 text-muted-foreground" />
+    <div v-if="isError" class="flex size-full items-center justify-center">
+      <ImageOff class="text-muted-foreground size-5" />
     </div>
     <img
       :alt="image"

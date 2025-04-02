@@ -51,7 +51,7 @@ usePreventBackNavigation(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-between h-full">
+  <div class="flex h-full flex-col justify-between">
     <TheHeader />
     <template v-if="store.state && store.images">
       <div class="flex flex-col gap-10">
@@ -93,7 +93,7 @@ usePreventBackNavigation(() => {
         </template>
       </UiDrawer>
     </template>
-    <div v-else class="flex items-center justify-center size-screen">
+    <div v-else class="size-screen flex items-center justify-center">
       <LoaderCircle class="size-5 animate-spin" />
     </div>
   </div>

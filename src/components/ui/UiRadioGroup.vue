@@ -14,7 +14,7 @@ const selected = defineModel<string>({ required: true })
     <label
       v-for="(value, index) in values"
       :key="value"
-      class="size-10 flex justify-center items-center rounded-md has-checked:bg-secondary"
+      class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md"
       :for="value"
     >
       <input

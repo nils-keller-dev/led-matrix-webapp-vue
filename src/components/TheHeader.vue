@@ -6,9 +6,9 @@ const version = packageJson.version
 
 <template>
   <header
-    class="border-b border-b-secondary flex items-center justify-between pr-4"
+    class="border-b-secondary flex items-center justify-between border-b pr-4"
   >
-    <div class="flex items-center text-muted-foreground gap-1">
+    <div class="text-muted-foreground flex items-center gap-1">
       <img src="/logo.svg" alt="logo" class="size-14" />
       <span>led-matrix-webapp</span>
     </div>

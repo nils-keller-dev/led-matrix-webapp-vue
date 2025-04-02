@@ -14,14 +14,14 @@ const isOpen = defineModel<boolean>('open')
   <DrawerRoot v-model:open="isOpen">
     <DrawerPortal>
       <DrawerOverlay
-        class="fixed inset-0 backdrop-blur-xs backdrop-brightness-50 z-10"
+        class="fixed inset-0 z-10 backdrop-blur-xs backdrop-brightness-50"
       />
       <DrawerContent
         :aria-describedby="undefined"
-        class="bg-background flex flex-col gap-7 p-7 pt-4 fixed w-full bottom-0 rounded-t-xl border border-secondary border-b-0 max-h-[85vh] outline-hidden z-20"
+        class="bg-background border-secondary fixed bottom-0 z-20 flex max-h-[85vh] w-full flex-col gap-7 rounded-t-xl border border-b-0 p-7 pt-4 outline-hidden"
       >
         <DrawerTitle class="hidden" />
-        <div class="bg-secondary w-20 h-2 shrink-0 rounded-full mx-auto" />
+        <div class="bg-secondary mx-auto h-2 w-20 shrink-0 rounded-full" />
         <slot />
       </DrawerContent>
     </DrawerPortal>

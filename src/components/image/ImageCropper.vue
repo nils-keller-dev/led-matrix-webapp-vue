@@ -49,10 +49,10 @@ const onConfirm = () => {
 
 <template>
   <div>
-    <div class="aspect-square bg-background w-full relative">
+    <div class="bg-background relative aspect-square w-full">
       <UiSkeleton
         v-if="!isCropperReady"
-        class="size-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="absolute top-1/2 left-1/2 size-full -translate-x-1/2 -translate-y-1/2"
       />
       <Cropper
         :key="src"
@@ -69,7 +69,7 @@ const onConfirm = () => {
         @ready="onCropperReady"
       />
     </div>
-    <div class="flex justify-between mt-4">
+    <div class="mt-4 flex justify-between">
       <UiButton text="Cancel" is-secondary @click="$emit('cancel')" />
       <UiButton text="Confirm" @click="onConfirm" />
     </div>

@@ -46,10 +46,10 @@ const updateBrightness = (backgroundBrightness: number) => {
     </UiWrapper>
 
     <div
-      class="flex flex-col border border-secondary rounded-md items-center justify-between"
+      class="border-secondary flex flex-col items-center justify-between rounded-md border"
     >
-      <div class="flex justify-between w-full px-4 py-3 relative gap-4">
-        <label class="size-full absolute left-0 top-0" for="background" />
+      <div class="relative flex w-full justify-between gap-4 px-4 py-3">
+        <label class="absolute top-0 left-0 size-full" for="background" />
         <span class="text-muted-foreground">Background</span>
         <UiColorInput
           id="background"
@@ -57,7 +57,7 @@ const updateBrightness = (backgroundBrightness: number) => {
           @update:model-value="updateBackgroundColor"
         />
       </div>
-      <div class="flex justify-between w-full items-center px-4 py-3 gap-4">
+      <div class="flex w-full items-center justify-between gap-4 px-4 py-3">
         <span class="text-muted-foreground">Brightness</span>
         <div class="w-55 max-w-55">
           <UiSlider

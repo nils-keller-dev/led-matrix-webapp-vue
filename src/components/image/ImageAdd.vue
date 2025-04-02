@@ -64,14 +64,14 @@ const uploadFile = (file?: File) => {
 
 <template>
   <div
-    class="w-full aspect-square rounded-xl border border-dashed border-muted-foreground text-muted-foreground flex items-center justify-center relative"
+    class="border-muted-foreground text-muted-foreground relative flex aspect-square w-full items-center justify-center rounded-xl border border-dashed"
   >
-    <label for="file" class="size-full absolute" />
+    <label for="file" class="absolute size-full" />
     <input
       id="file"
       type="file"
       accept=".jpg, .jpeg, .png, .gif"
-      class="opacity-0 size-0"
+      class="size-0 opacity-0"
       @input="onSelectFile"
     />
     <Plus />

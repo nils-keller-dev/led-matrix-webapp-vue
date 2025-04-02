@@ -69,21 +69,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full relative">
+  <div class="relative w-full">
     <div ref="emblaRef" class="overflow-hidden">
-      <div class="flex -ml-4 touch-pan-y">
+      <div class="-ml-4 flex touch-pan-y">
         <div
           v-for="{ id, title, hasConfiguration } in slides"
           :key="id"
-          class="w-9/12 aspect-square shrink-0 justify-center pl-4 box-content"
+          class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4"
         >
           <div
-            class="size-full border border-secondary rounded-3xl flex items-center justify-center relative"
+            class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"
           >
-            <span class="text-7xl font-blazeface">{{ title }}</span>
+            <span class="font-blazeface text-7xl">{{ title }}</span>
             <div
               v-if="hasConfiguration"
-              class="absolute h-full w-5/6 flex justify-center items-end pb-3"
+              class="absolute flex h-full w-5/6 items-end justify-center pb-3"
               @click="emit('clickSettings')"
             >
               <span class="text-muted-foreground"> Tap to configure </span>
@@ -94,10 +94,10 @@ onMounted(() => {
     </div>
 
     <div
-      class="absolute top-0 left-0 h-full w-1/12 bg-linear-to-r from-background via-50% via-background/65 to-transparent"
+      class="from-background via-background/65 absolute top-0 left-0 h-full w-1/12 bg-linear-to-r via-50% to-transparent"
     />
     <div
-      class="absolute top-0 right-0 h-full w-1/12 bg-linear-to-l from-background via-50% via-background/65 to-transparent"
+      class="from-background via-background/65 absolute top-0 right-0 h-full w-1/12 bg-linear-to-l via-50% to-transparent"
     />
 
     <UiIconButton
@@ -115,7 +115,7 @@ onMounted(() => {
       <ArrowRight />
     </UiIconButton>
 
-    <div class="flex justify-center gap-1 mt-2">
+    <div class="mt-2 flex justify-center gap-1">
       <div
         v-for="(_, index) in scrollSnaps"
         :key="index"

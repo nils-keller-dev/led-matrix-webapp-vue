@@ -7,9 +7,9 @@ defineProps<{
 
 <template>
   <div
-    class="flex border border-secondary rounded-md items-center justify-between py-3 px-4 relative"
+    class="border-secondary relative flex items-center justify-between rounded-md border px-4 py-3"
   >
-    <label class="size-full absolute left-0" :for="htmlFor" />
+    <label class="absolute left-0 size-full" :for="htmlFor" />
     <span class="text-muted-foreground">{{ title }}</span>
     <slot />
   </div>

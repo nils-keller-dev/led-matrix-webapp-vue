@@ -36,20 +36,20 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex gap-3 items-center">
+  <div class="flex items-center gap-3">
     <input
       :id
       ref="UiColorInput"
       aria-label="color picker"
       type="color"
       :value="colorValue"
-      class="opacity-0 size-0 absolute"
+      class="absolute size-0 opacity-0"
       @change="onColorChange"
     />
-    <UiSkeleton v-if="!colorName" class="w-25 h-5" />
+    <UiSkeleton v-if="!colorName" class="h-5 w-25" />
     <span v-else class="text-primary">{{ colorName }}</span>
     <div
-      class="size-6 rounded-md border border-secondary"
+      class="border-secondary size-6 rounded-md border"
       :style="`background-color: ${displayColor}`"
     />
   </div>

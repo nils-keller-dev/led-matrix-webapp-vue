@@ -16,7 +16,7 @@ const onKeyDown = (event: KeyboardEvent) => {
     v-model.lazy="value"
     :placeholder="placeholder"
     enterkeyhint="send"
-    class="bg-background text-primary resize-none w-full h-[130px] border border-secondary rounded-md outline-hidden py-3 px-4"
+    class="bg-background text-primary border-secondary h-[130px] w-full resize-none rounded-md border px-4 py-3 outline-hidden"
     @keydown.enter.stop.prevent="onKeyDown"
     @pointermove.stop
   />
