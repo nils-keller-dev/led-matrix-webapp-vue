@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { Plus } from 'lucide-vue-next'
 import { ref } from 'vue'
-import { postImage } from '../api/image.post'
-import { useStore } from '../store/store'
+import { postImage } from '../../api/image.post'
+import { useStore } from '../../store/store'
 import ImageCropper from './ImageCropper.vue'
-import TheDialog from './TheDialog.vue'
+import UiDialog from '../ui/UiDialog.vue'
 
 const isModalOpen = ref(false)
 const imgSrc = ref<string>('')
@@ -75,12 +75,12 @@ const uploadFile = (file?: File) => {
       @input="onSelectFile"
     />
     <Plus />
-    <TheDialog v-model:open="isModalOpen">
+    <UiDialog v-model:open="isModalOpen">
       <ImageCropper
         :src="imgSrc"
         @confirm="uploadFile"
         @cancel="() => (isModalOpen = false)"
       />
-    </TheDialog>
+    </UiDialog>
   </div>
 </template>

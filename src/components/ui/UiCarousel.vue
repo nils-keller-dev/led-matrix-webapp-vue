@@ -3,8 +3,8 @@ import debounceFunction from 'debounce-fn'
 import emblaCarouselVue from 'embla-carousel-vue'
 import { ArrowLeft, ArrowRight } from 'lucide-vue-next'
 import { onMounted, ref } from 'vue'
-import { Mode } from '../constants/enums/Mode'
-import IconButton from './IconButton.vue'
+import { Mode } from '../../constants/enums/Mode'
+import UiIconButton from './UiIconButton.vue'
 
 type CarouselItem = {
   title: string
@@ -100,20 +100,20 @@ onMounted(() => {
       class="absolute top-0 right-0 h-full w-1/12 bg-linear-to-l from-background via-50% via-background/65 to-transparent"
     />
 
-    <IconButton
+    <UiIconButton
       aria-label="previous"
       class="absolute top-1/2 left-5 -translate-y-1/2"
       @click="onPrevButtonClick"
     >
       <ArrowLeft />
-    </IconButton>
-    <IconButton
+    </UiIconButton>
+    <UiIconButton
       aria-label="next"
       class="absolute top-1/2 right-5 -translate-y-1/2"
       @click="onNextButtonClick"
     >
       <ArrowRight />
-    </IconButton>
+    </UiIconButton>
 
     <div class="flex justify-center gap-1 mt-2">
       <div

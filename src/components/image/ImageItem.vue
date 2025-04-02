@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ImageOff, LoaderCircle } from 'lucide-vue-next'
 import { onMounted, ref, useTemplateRef } from 'vue'
-import { handleTapAndHold } from '../utils/handleTapAndHold'
+import { handleTapAndHold } from '../../utils/handleTapAndHold'
 
 const props = defineProps<{
   image: string

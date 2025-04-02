@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { deleteImage } from '../api/image.delete'
-import { patchState } from '../api/state.patch'
-import { useStore } from '../store/store'
+import { deleteImage } from '../../api/image.delete'
+import { patchState } from '../../api/state.patch'
+import { useStore } from '../../store/store'
 import ImageAdd from './ImageAdd.vue'
 import ImageItem from './ImageItem.vue'
 

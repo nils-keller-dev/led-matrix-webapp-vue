@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { patchState } from '../api/state.patch'
-import { useStore } from '../store/store'
-import InputWrapper from './InputWrapper.vue'
-import ToggleSwitch from './ToggleSwitch.vue'
+import { patchState } from '../../api/state.patch'
+import { useStore } from '../../store/store'
+import UiWrapper from '../ui/UiWrapper.vue'
+import UiToggle from '../ui/UiToggle.vue'
 
 defineProps<{
   fullscreen: boolean
@@ -18,11 +18,11 @@ const updateFullscreen = (fullscreen: boolean) => {
 </script>
 
 <template>
-  <InputWrapper title="Fullscreen" html-for="fullscreen">
-    <ToggleSwitch
+  <UiWrapper title="Fullscreen" html-for="fullscreen">
+    <UiToggle
       id="fullscreen"
       :model-value="fullscreen"
       @update:model-value="updateFullscreen"
     />
-  </InputWrapper>
+  </UiWrapper>
 </template>

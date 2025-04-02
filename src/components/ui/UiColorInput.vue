@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 import debounceFunction from 'debounce-fn'
 import { ref, useTemplateRef, watchEffect } from 'vue'
-import { fetchColorName } from '../utils/fetchColorName'
-import TheSkeleton from './TheSkeleton.vue'
+import { fetchColorName } from '../../utils/fetchColorName'
+import UiSkeleton from './UiSkeleton.vue'
 
 defineProps<{
   id: string
 }>()
 
-const colorInput = useTemplateRef<HTMLInputElement>('colorInput')
+const UiColorInput = useTemplateRef<HTMLInputElement>('UiColorInput')
 
 const colorValue = defineModel<string>({ required: true })
 const displayColor = ref(colorValue.value)
 const colorName = ref('')
 
 const onColorChange = () => {
-  const color = colorInput.value?.value ?? ''
+  const color = UiColorInput.value?.value ?? ''
   if (!color || color === colorValue.value) return
 
   displayColor.value = color
@@ -39,14 +39,14 @@ watchEffect(() => {
   <div class="flex gap-3 items-center">
     <input
       :id
-      ref="colorInput"
+      ref="UiColorInput"
       aria-label="color picker"
       type="color"
       :value="colorValue"
       class="opacity-0 size-0 absolute"
       @change="onColorChange"
     />
-    <TheSkeleton v-if="!colorName" class="w-25 h-5" />
+    <UiSkeleton v-if="!colorName" class="w-25 h-5" />
     <span v-else class="text-primary">{{ colorName }}</span>
     <div
       class="size-6 rounded-md border border-secondary"

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { patchState } from '../api/state.patch'
-import { useStore } from '../store/store'
-import { hexToRgb, rgbToHex } from '../utils/ColorConversion'
-import ColorInput from './ColorInput.vue'
-import InputWrapper from './InputWrapper.vue'
-import TheSlider from './TheSlider.vue'
+import { patchState } from '../../api/state.patch'
+import { useStore } from '../../store/store'
+import { hexToRgb, rgbToHex } from '../../utils/ColorConversion'
+import UiColorInput from '../ui/UiColorInput.vue'
+import UiWrapper from '../ui/UiWrapper.vue'
+import UiSlider from '../ui/UiSlider.vue'
 
 defineProps<{
   color: number[]
@@ -37,13 +37,13 @@ const updateBrightness = (backgroundBrightness: number) => {
 
 <template>
   <div class="flex flex-col gap-5">
-    <InputWrapper title="Text" html-for="text">
-      <ColorInput
+    <UiWrapper title="Text" html-for="text">
+      <UiColorInput
         id="text"
         :model-value="rgbToHex(color)"
         @update:model-value="updateColor"
       />
-    </InputWrapper>
+    </UiWrapper>
 
     <div
       class="flex flex-col border border-secondary rounded-md items-center justify-between"
@@ -51,7 +51,7 @@ const updateBrightness = (backgroundBrightness: number) => {
       <div class="flex justify-between w-full px-4 py-3 relative gap-4">
         <label class="size-full absolute left-0 top-0" for="background" />
         <span class="text-muted-foreground">Background</span>
-        <ColorInput
+        <UiColorInput
           id="background"
           :model-value="rgbToHex(backgroundColor)"
           @update:model-value="updateBackgroundColor"
@@ -60,7 +60,7 @@ const updateBrightness = (backgroundBrightness: number) => {
       <div class="flex justify-between w-full items-center px-4 py-3 gap-4">
         <span class="text-muted-foreground">Brightness</span>
         <div class="w-55 max-w-55">
-          <TheSlider
+          <UiSlider
             :min="0"
             :max="100"
             :model-value="backgroundBrightness"

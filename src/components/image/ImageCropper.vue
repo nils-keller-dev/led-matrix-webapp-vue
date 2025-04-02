@@ -2,9 +2,9 @@
 import { ref, useTemplateRef } from 'vue'
 import { Cropper } from 'vue-advanced-cropper'
 import 'vue-advanced-cropper/dist/style.css'
-import { downscaleCanvas } from '../utils/downscaleCanvas'
-import TheButton from './TheButton.vue'
-import TheSkeleton from './TheSkeleton.vue'
+import { downscaleCanvas } from '../../utils/downscaleCanvas'
+import UiButton from '../ui/UiButton.vue'
+import UiSkeleton from '../ui/UiSkeleton.vue'
 
 type DefaultSize = {
   imageSize: {
@@ -50,7 +50,7 @@ const onConfirm = () => {
 <template>
   <div>
     <div class="aspect-square bg-background w-full relative">
-      <TheSkeleton
+      <UiSkeleton
         v-if="!isCropperReady"
         class="size-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       />
@@ -70,8 +70,8 @@ const onConfirm = () => {
       />
     </div>
     <div class="flex justify-between mt-4">
-      <TheButton text="Cancel" is-secondary @click="$emit('cancel')" />
-      <TheButton text="Confirm" @click="onConfirm" />
+      <UiButton text="Cancel" is-secondary @click="$emit('cancel')" />
+      <UiButton text="Confirm" @click="onConfirm" />
     </div>
   </div>
 </template>

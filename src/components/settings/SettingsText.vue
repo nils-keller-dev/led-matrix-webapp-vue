@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { AlignCenter, AlignJustify, AlignLeft } from 'lucide-vue-next'
-import { patchState } from '../api/state.patch'
-import { TextAlign } from '../constants/enums/TextAlign'
-import { useStore } from '../store/store'
-import { hexToRgb, rgbToHex } from '../utils/ColorConversion'
-import ColorInput from './ColorInput.vue'
-import InputWrapper from './InputWrapper.vue'
-import RadioGroup from './RadioGroup.vue'
-import TextArea from './TextArea.vue'
-import TheSlider from './TheSlider.vue'
+import { patchState } from '../../api/state.patch'
+import { TextAlign } from '../../constants/enums/TextAlign'
+import { useStore } from '../../store/store'
+import { hexToRgb, rgbToHex } from '../../utils/ColorConversion'
+import UiColorInput from '../ui/UiColorInput.vue'
+import UiWrapper from '../ui/UiWrapper.vue'
+import UiRadioGroup from '../ui/UiRadioGroup.vue'
+import UiTextArea from '../ui/UiTextArea.vue'
+import UiSlider from '../ui/UiSlider.vue'
 
 defineProps<{
   align: TextAlign
@@ -56,44 +56,44 @@ const updateColor = (color: string) => {
 <template>
   <div class="flex flex-col gap-5">
     <div class="flex justify-center">
-      <RadioGroup
+      <UiRadioGroup
         :icons="[AlignLeft, AlignCenter, AlignJustify]"
         :values="Object.values(TextAlign)"
         :model-value="align"
         @update:model-value="updateAlign"
       />
     </div>
-    <TextArea
+    <UiTextArea
       placeholder="Enter your text here"
       :model-value="text"
       @update:model-value="updateText"
     />
-    <InputWrapper title="Size">
+    <UiWrapper title="Size">
       <div class="w-55">
-        <TheSlider
+        <UiSlider
           :min="1"
           :max="5"
           :model-value="size"
           @update:model-value="updateSize"
         />
       </div>
-    </InputWrapper>
-    <InputWrapper title="Speed">
+    </UiWrapper>
+    <UiWrapper title="Speed">
       <div class="w-55">
-        <TheSlider
+        <UiSlider
           :min="0"
           :max="10"
           :model-value="speed"
           @update:model-value="updateSpeed"
         />
       </div>
-    </InputWrapper>
-    <InputWrapper title="Color" html-for="color">
-      <ColorInput
+    </UiWrapper>
+    <UiWrapper title="Color" html-for="color">
+      <UiColorInput
         id="color"
         :model-value="rgbToHex(color)"
         @update:model-value="updateColor"
       />
-    </InputWrapper>
+    </UiWrapper>
   </div>
 </template>

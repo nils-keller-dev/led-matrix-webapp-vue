@@ -12,7 +12,7 @@ const onKeyDown = (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <textarea
+  <UiTextArea
     v-model.lazy="value"
     :placeholder="placeholder"
     enterkeyhint="send"

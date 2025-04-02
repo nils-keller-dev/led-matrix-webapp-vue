@@ -4,13 +4,13 @@ import { ref } from 'vue'
 import { getImages } from './api/images.get'
 import { getState } from './api/state.get'
 import { patchState } from './api/state.patch'
-import GlobalConfiguration from './components/GlobalConfiguration.vue'
-import SettingsClock from './components/SettingsClock.vue'
-import SettingsImage from './components/SettingsImage.vue'
-import SettingsMusic from './components/SettingsMusic.vue'
-import SettingsText from './components/SettingsText.vue'
-import TheCarousel from './components/TheCarousel.vue'
-import TheDrawer from './components/TheDrawer.vue'
+import TheFooter from './components/TheFooter.vue'
+import SettingsClock from './components/settings/SettingsClock.vue'
+import SettingsImage from './components/settings/SettingsImage.vue'
+import SettingsMusic from './components/settings/SettingsMusic.vue'
+import SettingsText from './components/settings/SettingsText.vue'
+import UiCarousel from './components/ui/UiCarousel.vue'
+import UiDrawer from './components/ui/UiDrawer.vue'
 import TheHeader from './components/TheHeader.vue'
 import { CAROUSEL_ITEMS } from './constants/CarouselItems'
 import { Mode } from './constants/enums/Mode'
@@ -50,18 +50,18 @@ getImages().then((newImages) => {
     <TheHeader />
     <template v-if="store.state && store.images">
       <div class="flex flex-col gap-10">
-        <TheCarousel
+        <UiCarousel
           :slides="CAROUSEL_ITEMS"
           :initial-value="Mode[store.state?.global.mode as keyof typeof Mode]"
           @change="onChangeCarouselIndex"
           @click-settings="onClickCarouselSettings"
         />
-        <GlobalConfiguration
+        <TheFooter
           :model-value="store.state.global.brightness!"
           @update:model-value="onChangeBrightness"
         />
       </div>
-      <TheDrawer v-model:open="isDrawerOpen">
+      <UiDrawer v-model:open="isDrawerOpen">
         <template v-if="currentCarouselIndex >= 0">
           <SettingsClock
             v-if="currentCarouselIndex === 0"
@@ -86,7 +86,7 @@ getImages().then((newImages) => {
             :color="store.state.text.color!"
           />
         </template>
-      </TheDrawer>
+      </UiDrawer>
     </template>
     <div v-else class="flex items-center justify-center size-screen">
       <LoaderCircle class="size-5 animate-spin" />

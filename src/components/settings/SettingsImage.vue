@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ImageList from './ImageList.vue'
+import ImageList from '../image/ImageList.vue'
 
 defineProps<{
   image: string
