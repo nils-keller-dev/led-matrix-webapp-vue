@@ -1,12 +1,20 @@
-import { describe, expect, test } from 'vitest'
-import { images, state } from '../../src/store/store'
+// stores/counter.spec.ts
+import { createPinia, setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, test } from 'vitest'
+import { useStore } from '../../src/store/store'
 
-describe('store', () => {
+describe('Counter Store', () => {
+  beforeEach(() => {
+    setActivePinia(createPinia())
+  })
+
   test('initializes state as null', () => {
-    expect(state.value).toBeNull()
+    const store = useStore()
+    expect(store.state).toBeNull()
   })
 
   test('initializes images as null', () => {
-    expect(images.value).toBeNull()
+    const store = useStore()
+    expect(store.images).toBeNull()
   })
 })
