@@ -1,22 +1,20 @@
-type TapHoldCallback = (event: TouchEvent) => void
-
 export function handleTapAndHold(
   element: HTMLElement,
-  callback: TapHoldCallback
-): void {
+  callback: (event: TouchEvent) => void
+) {
   let timer: number | undefined
 
-  element.addEventListener('touchstart', (event: TouchEvent) => {
-    timer = window.setTimeout(() => {
-      callback(event)
-    }, 600)
-  })
+  element.addEventListener(
+    'touchstart',
+    (event: TouchEvent) => {
+      timer = window.setTimeout(() => {
+        callback(event)
+      }, 600)
+    },
+    { passive: true }
+  )
 
-  const clearTimer = () => {
-    if (timer) {
-      clearTimeout(timer)
-    }
-  }
+  const clearTimer = () => clearTimeout(timer)
 
   element.addEventListener('touchcancel', clearTimer)
   element.addEventListener('touchend', clearTimer)
