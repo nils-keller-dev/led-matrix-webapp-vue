@@ -1,17 +1,25 @@
-import { coverageConfigDefaults, defineConfig } from 'vitest/config'
+import {
+  coverageConfigDefaults,
+  defineConfig,
+  mergeConfig
+} from 'vitest/config'
+import viteConfig from './vite.config'
 
-export default defineConfig({
-  test: {
-    environment: 'happy-dom',
-    setupFiles: './vitest.setup.ts',
-    coverage: {
-      exclude: [
-        '**/enums/**',
-        '**/interfaces/**',
-        '**/constants/**',
-        '**/main.ts',
-        ...coverageConfigDefaults.exclude
-      ]
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      environment: 'happy-dom',
+      setupFiles: './vitest.setup.ts',
+      coverage: {
+        exclude: [
+          '**/enums/**',
+          '**/interfaces/**',
+          '**/constants/**',
+          '**/main.ts',
+          ...coverageConfigDefaults.exclude
+        ]
+      }
     }
-  }
-})
+  })
+)
