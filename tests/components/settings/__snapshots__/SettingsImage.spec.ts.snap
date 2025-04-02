@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsImage > matches snapshot 1`] = `"<image-list-stub selected="test-image"></image-list-stub>"`;
