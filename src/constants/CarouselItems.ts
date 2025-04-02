@@ -1,4 +1,4 @@
-import { Mode } from './enums/Mode'
+import { Mode } from '@/constants/enums/Mode'
 
 export const CAROUSEL_ITEMS = [
   {

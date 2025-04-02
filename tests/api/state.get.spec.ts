@@ -1,8 +1,8 @@
+import { getState } from '@/api/state.get'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 import { describe, expect, test, vi } from 'vitest'
-import { getState } from '../../src/api/state.get'
-import { fetchWithCheck } from '../../src/utils/fetchWithCheck'
 
-vi.mock('../../src/utils/fetchWithCheck')
+vi.mock('@/utils/fetchWithCheck')
 
 describe('getState', () => {
   test('calls fetchWithCheck and returns the expected state', async () => {

@@ -1,6 +1,6 @@
+import UiIconButton from '@/components/ui/UiIconButton.vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import UiIconButton from '../../../src/components/ui/UiIconButton.vue'
 
 describe('UiIconButton', () => {
   test('matches snapshot', () => {

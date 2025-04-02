@@ -1,5 +1,5 @@
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 import { describe, expect, test, vi } from 'vitest'
-import { fetchWithCheck } from '../../src/utils/fetchWithCheck'
 
 describe('fetchWithCheck', () => {
   test('returns response when fetch is successful', async () => {

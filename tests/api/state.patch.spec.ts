@@ -1,9 +1,9 @@
+import { patchState } from '@/api/state.patch'
+import type { State } from '@/constants/interfaces/State'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 import { describe, expect, test, vi } from 'vitest'
-import { patchState } from '../../src/api/state.patch'
-import { State } from '../../src/constants/interfaces/State'
-import { fetchWithCheck } from '../../src/utils/fetchWithCheck'
 
-vi.mock('../../src/utils/fetchWithCheck')
+vi.mock('@/utils/fetchWithCheck')
 
 describe('patchState', () => {
   test('calls fetchWithCheck with correct arguments', async () => {

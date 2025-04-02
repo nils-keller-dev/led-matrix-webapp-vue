@@ -1,6 +1,6 @@
+import { withSetup } from '@/../test-utils'
+import { usePreventBackNavigation } from '@/composables/usePreventBackNavigation'
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
-import { usePreventBackNavigation } from '../../src/composables/usePreventBackNavigation'
-import { withSetup } from '../../test-utils'
 
 describe('usePreventBackNavigation', () => {
   beforeAll(() => {

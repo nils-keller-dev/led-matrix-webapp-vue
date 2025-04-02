@@ -1,8 +1,8 @@
+import { deleteImage } from '@/api/image.delete'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 import { describe, expect, test, vi } from 'vitest'
-import { deleteImage } from '../../src/api/image.delete'
-import { fetchWithCheck } from '../../src/utils/fetchWithCheck'
 
-vi.mock('../../src/utils/fetchWithCheck')
+vi.mock('@/utils/fetchWithCheck')
 
 describe('deleteImage', () => {
   test('calls fetchWithCheck with correct arguments', async () => {

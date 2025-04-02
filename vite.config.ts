@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 
 const endpointData = {
@@ -14,5 +15,10 @@ export default defineConfig({
       accumulator[`/api/${currentValue}`] = { target: endpointData.mockUrl }
       return accumulator
     }, {})
+  },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
   }
 })

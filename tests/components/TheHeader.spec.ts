@@ -1,8 +1,8 @@
+import TheHeader from '@/components/TheHeader.vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import TheHeader from '../../src/components/TheHeader.vue'
 
-vi.mock('../../package.json', () => ({
+vi.mock('@/../package.json', () => ({
   default: { version: '0.0.0' }
 }))
 

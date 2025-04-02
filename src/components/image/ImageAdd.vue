@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import { postImage } from '@/api/image.post'
+import ImageCropper from '@/components/image/ImageCropper.vue'
+import UiDialog from '@/components/ui/UiDialog.vue'
+import { useStore } from '@/store/store'
 import { Plus } from 'lucide-vue-next'
 import { ref } from 'vue'
-import { postImage } from '../../api/image.post'
-import { useStore } from '../../store/store'
-import ImageCropper from './ImageCropper.vue'
-import UiDialog from '../ui/UiDialog.vue'
 
 const isModalOpen = ref(false)
 const imgSrc = ref<string>('')

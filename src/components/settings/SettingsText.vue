@@ -1,14 +1,14 @@
 <script lang="ts" setup>
+import { patchState } from '@/api/state.patch'
+import UiColorInput from '@/components/ui/UiColorInput.vue'
+import UiRadioGroup from '@/components/ui/UiRadioGroup.vue'
+import UiSlider from '@/components/ui/UiSlider.vue'
+import UiTextArea from '@/components/ui/UiTextArea.vue'
+import UiWrapper from '@/components/ui/UiWrapper.vue'
+import { TextAlign } from '@/constants/enums/TextAlign'
+import { useStore } from '@/store/store'
+import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
 import { AlignCenter, AlignJustify, AlignLeft } from 'lucide-vue-next'
-import { patchState } from '../../api/state.patch'
-import { TextAlign } from '../../constants/enums/TextAlign'
-import { useStore } from '../../store/store'
-import { hexToRgb, rgbToHex } from '../../utils/ColorConversion'
-import UiColorInput from '../ui/UiColorInput.vue'
-import UiWrapper from '../ui/UiWrapper.vue'
-import UiRadioGroup from '../ui/UiRadioGroup.vue'
-import UiTextArea from '../ui/UiTextArea.vue'
-import UiSlider from '../ui/UiSlider.vue'
 
 defineProps<{
   align: TextAlign

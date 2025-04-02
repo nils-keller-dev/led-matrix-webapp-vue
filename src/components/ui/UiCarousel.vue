@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import UiIconButton from '@/components/ui/UiIconButton.vue'
+import { Mode } from '@/constants/enums/Mode'
 import debounceFunction from 'debounce-fn'
 import emblaCarouselVue from 'embla-carousel-vue'
 import { ArrowLeft, ArrowRight } from 'lucide-vue-next'
 import { onMounted, ref } from 'vue'
-import { Mode } from '../../constants/enums/Mode'
-import UiIconButton from './UiIconButton.vue'
 
 type CarouselItem = {
   title: string

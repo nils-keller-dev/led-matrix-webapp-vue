@@ -1,7 +1,7 @@
+import ImageList from '@/components/image/ImageList.vue'
+import SettingsImage from '@/components/settings/SettingsImage.vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import ImageList from '../../../src/components/image/ImageList.vue'
-import SettingsImage from '../../../src/components/settings/SettingsImage.vue'
 
 const mountingOptions = {
   props: {

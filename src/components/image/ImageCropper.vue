@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import UiButton from '@/components/ui/UiButton.vue'
+import UiSkeleton from '@/components/ui/UiSkeleton.vue'
+import { downscaleCanvas } from '@/utils/downscaleCanvas'
 import { ref, useTemplateRef } from 'vue'
 import { Cropper } from 'vue-advanced-cropper'
 import 'vue-advanced-cropper/dist/style.css'
-import { downscaleCanvas } from '../../utils/downscaleCanvas'
-import UiButton from '../ui/UiButton.vue'
-import UiSkeleton from '../ui/UiSkeleton.vue'
 
 type DefaultSize = {
   imageSize: {

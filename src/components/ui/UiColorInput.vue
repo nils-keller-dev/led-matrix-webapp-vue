@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+import UiSkeleton from '@/components/ui/UiSkeleton.vue'
+import { fetchColorName } from '@/utils/fetchColorName'
 import debounceFunction from 'debounce-fn'
 import { ref, useTemplateRef, watchEffect } from 'vue'
-import { fetchColorName } from '../../utils/fetchColorName'
-import UiSkeleton from './UiSkeleton.vue'
 
 defineProps<{
   id: string

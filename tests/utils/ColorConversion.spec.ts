@@ -1,5 +1,5 @@
-import { hexToRgb, rgbToHex } from '../../src/utils/ColorConversion'
-import { describe, it, expect, test } from 'vitest'
+import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
+import { describe, expect, it, test } from 'vitest'
 
 const colors = [
   { rgb: [255, 0, 0], hex: '#ff0000' },

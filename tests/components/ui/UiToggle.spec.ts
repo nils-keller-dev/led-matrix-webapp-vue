@@ -1,6 +1,6 @@
+import UiToggle from '@/components/ui/UiToggle.vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import UiToggle from '../../../src/components/ui/UiToggle.vue'
 
 const mountingOptions = {
   props: {

@@ -1,8 +1,8 @@
+import { getImages } from '@/api/images.get'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 import { describe, expect, test, vi } from 'vitest'
-import { getImages } from '../../src/api/images.get'
-import { fetchWithCheck } from '../../src/utils/fetchWithCheck'
 
-vi.mock('../../src/utils/fetchWithCheck')
+vi.mock('@/utils/fetchWithCheck')
 
 describe('getImages', () => {
   test('calls fetchWithCheck and returns the images', async () => {

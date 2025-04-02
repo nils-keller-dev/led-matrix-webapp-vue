@@ -1,4 +1,4 @@
-import { TextAlign } from '../enums/TextAlign'
+import { TextAlign } from '@/constants/enums/TextAlign'
 
 interface Global {
   mode?: string

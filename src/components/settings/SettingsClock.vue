@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { patchState } from '../../api/state.patch'
-import { useStore } from '../../store/store'
-import { hexToRgb, rgbToHex } from '../../utils/ColorConversion'
-import UiColorInput from '../ui/UiColorInput.vue'
-import UiWrapper from '../ui/UiWrapper.vue'
-import UiSlider from '../ui/UiSlider.vue'
+import { patchState } from '@/api/state.patch'
+import UiColorInput from '@/components/ui/UiColorInput.vue'
+import UiSlider from '@/components/ui/UiSlider.vue'
+import UiWrapper from '@/components/ui/UiWrapper.vue'
+import { useStore } from '@/store/store'
+import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
 
 defineProps<{
   color: number[]

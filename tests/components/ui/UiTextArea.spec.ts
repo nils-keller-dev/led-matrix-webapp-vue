@@ -1,6 +1,6 @@
-import { describe, expect, test, vi } from 'vitest'
-import UiTextArea from '../../../src/components/ui/UiTextArea.vue'
+import UiTextArea from '@/components/ui/UiTextArea.vue'
 import { shallowMount } from '@vue/test-utils'
+import { describe, expect, test, vi } from 'vitest'
 
 const mountingOptions = {
   props: {

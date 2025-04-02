@@ -1,5 +1,5 @@
-import type { State } from '../constants/interfaces/State'
-import { fetchWithCheck } from '../utils/fetchWithCheck'
+import type { State } from '@/constants/interfaces/State'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 
 export const patchState = (state: Partial<State>) => {
   return fetchWithCheck('/state', {

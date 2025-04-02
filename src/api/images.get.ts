@@ -1,4 +1,4 @@
-import { fetchWithCheck } from '../utils/fetchWithCheck'
+import { fetchWithCheck } from '@/utils/fetchWithCheck'
 
 export const getImages = (): Promise<string[]> => {
   return fetchWithCheck('/images')

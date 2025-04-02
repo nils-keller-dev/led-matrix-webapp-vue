@@ -1,6 +1,6 @@
+import UiButton from '@/components/ui/UiButton.vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
-import UiButton from '../../../src/components/ui/UiButton.vue'
 
 const mountingOptions = {
   props: {

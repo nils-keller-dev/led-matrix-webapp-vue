@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import packageJson from '../../package.json'
+import packageJson from '@/../package.json'
 
 const version = packageJson.version
 </script>

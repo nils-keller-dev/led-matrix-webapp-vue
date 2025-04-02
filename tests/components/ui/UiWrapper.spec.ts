@@ -1,6 +1,6 @@
-import { describe, expect, test } from 'vitest'
-import UiWrapper from '../../../src/components/ui/UiWrapper.vue'
+import UiWrapper from '@/components/ui/UiWrapper.vue'
 import { shallowMount } from '@vue/test-utils'
+import { describe, expect, test } from 'vitest'
 
 const mountingOptions = {
   props: {

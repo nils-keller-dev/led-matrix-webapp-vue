@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { patchState } from '../../api/state.patch'
-import { useStore } from '../../store/store'
-import UiWrapper from '../ui/UiWrapper.vue'
-import UiToggle from '../ui/UiToggle.vue'
+import { patchState } from '@/api/state.patch'
+import UiToggle from '@/components/ui/UiToggle.vue'
+import UiWrapper from '@/components/ui/UiWrapper.vue'
+import { useStore } from '@/store/store'
 
 defineProps<{
   fullscreen: boolean

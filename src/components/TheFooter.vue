@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import UiSlider from '@/components/ui/UiSlider.vue'
 import { Sun, SunDim } from 'lucide-vue-next'
-import UiSlider from './ui/UiSlider.vue'
 
 const brightness = defineModel<number>({ required: true })
 </script>
