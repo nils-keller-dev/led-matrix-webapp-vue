@@ -9,9 +9,10 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      environment: 'happy-dom',
+      environment: 'jsdom',
       setupFiles: './vitest.setup.ts',
       coverage: {
+        provider: 'istanbul',
         exclude: [
           '**/enums/**',
           '**/interfaces/**',
