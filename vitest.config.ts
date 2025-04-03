@@ -19,6 +19,7 @@ export default mergeConfig(
           '**/interfaces/**',
           '**/constants/**',
           '**/main.ts',
+          'html/assets',
           ...coverageConfigDefaults.exclude
         ],
         provider: 'istanbul'
