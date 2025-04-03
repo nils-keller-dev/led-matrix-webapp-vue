@@ -8,7 +8,6 @@ const props = defineProps<{
 
 const modelValue = defineModel<number>({ required: true })
 const currentValue = ref(modelValue.value)
-const sliderRef = useTemplateRef<HTMLSpanElement>('sliderRef')
 
 const percent = computed(
   () => ((currentValue.value - props.min) / (props.max - props.min)) * 100
@@ -16,9 +15,9 @@ const percent = computed(
 const dynamicOffset = computed(() => -20 * (percent.value / 100) + 10)
 
 const handleDrag = (e: PointerEvent) => {
-  if (!sliderRef.value) return
+  const target = e.target as HTMLSpanElement
 
-  const rect = sliderRef.value.getBoundingClientRect()
+  const rect = target.getBoundingClientRect()
   const x = e.clientX - rect.left
   const newValue = Math.round(
     Math.min(
@@ -51,7 +50,6 @@ const stopDrag = () => {
 
 <template>
   <span
-    ref="sliderRef"
     class="relative flex h-6 w-full touch-none items-center"
     @pointerdown.stop="startDrag"
   >
