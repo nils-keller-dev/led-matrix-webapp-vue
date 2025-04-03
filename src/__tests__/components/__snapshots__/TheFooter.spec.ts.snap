@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TheFooter > matches snapshot 1`] = `
+"<div class="flex w-full flex-col gap-5 p-7">
+  <div class="flex flex-row gap-3">
+    <anonymous-stub class="text-muted-foreground shrink-0"></anonymous-stub>
+    <ui-slider-stub modelvalue="50" min="3" max="100"></ui-slider-stub>
+    <anonymous-stub class="text-muted-foreground shrink-0"></anonymous-stub>
+  </div>
+</div>"
+`;
