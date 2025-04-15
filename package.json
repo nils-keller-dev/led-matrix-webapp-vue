@@ -23,6 +23,7 @@
     "vue-advanced-cropper": "^2.8.9"
   },
   "devDependencies": {
+    "@pinia/testing": "^1.0.1",
     "@tailwindcss/vite": "^4.1.1",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-vue": "^5.2.3",
