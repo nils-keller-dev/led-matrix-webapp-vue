@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiDrawer > matches snapshot 1`] = `
+"<drawer-root-stub closethreshold="0.25" setbackgroundcoloronscale="true" scrolllocktimeout="100" dismissible="true" modal="true" open="true" nested="false" direction="bottom" nobodystyles="false" handleonly="false" preventscrollrestoration="false">
+  <dialog-portal-stub disabled="false" defer="false" forcemount="false">
+    <drawer-overlay-stub class="fixed inset-0 z-10 backdrop-blur-xs backdrop-brightness-50"></drawer-overlay-stub>
+    <drawer-content-stub class="bg-background border-secondary fixed bottom-0 z-20 flex max-h-[85vh] w-full flex-col gap-7 rounded-t-xl border border-b-0 p-7 pt-4 outline-hidden">
+      <dialog-title-stub aschild="false" as="h2" class="hidden"></dialog-title-stub>
+      <div class="bg-secondary mx-auto h-2 w-20 shrink-0 rounded-full"></div>child content
+    </drawer-content-stub>
+  </dialog-portal-stub>
+</drawer-root-stub>"
+`;
