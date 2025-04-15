@@ -15,7 +15,6 @@ const mountingOptions = {
 describe('UiWrapper', () => {
   test('matches snapshot', () => {
     const wrapper = shallowMount(UiWrapper, mountingOptions)
-
     expect(wrapper.html()).toMatchSnapshot()
   })
 

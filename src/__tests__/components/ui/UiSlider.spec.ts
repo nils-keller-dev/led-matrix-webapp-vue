@@ -13,7 +13,6 @@ const mountingOptions = {
 describe('UiSlider', () => {
   test('matches snapshot', () => {
     const wrapper = shallowMount(UiSlider, mountingOptions)
-
     expect(wrapper.html()).toMatchSnapshot()
   })
 

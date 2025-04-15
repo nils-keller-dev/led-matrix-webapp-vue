@@ -14,7 +14,6 @@ const mountingOptions = {
 describe('UiRadioGroup', () => {
   test('matches snapshot', () => {
     const wrapper = shallowMount(UiRadioGroup, mountingOptions)
-
     expect(wrapper.html()).toMatchSnapshot()
   })
 

@@ -12,7 +12,6 @@ const mountingOptions = {
 describe('UiTextArea', () => {
   test('matches snapshot', () => {
     const wrapper = shallowMount(UiTextArea, mountingOptions)
-
     expect(wrapper.html()).toMatchSnapshot()
   })
 
