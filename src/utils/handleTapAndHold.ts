@@ -1,6 +1,6 @@
 export function handleTapAndHold(
   element: HTMLElement,
-  callback: (event: TouchEvent) => void
+  callback: (event?: TouchEvent) => void
 ) {
   let timer: number | undefined
 
