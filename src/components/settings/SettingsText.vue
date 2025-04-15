@@ -8,7 +8,7 @@ import UiWrapper from '@/components/ui/UiWrapper.vue'
 import { TextAlign } from '@/constants/enums/TextAlign'
 import { useStore } from '@/store/store'
 import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
-import { AlignCenter, AlignJustify, AlignLeft } from 'lucide-vue-next'
+import { AlignCenter, AlignLeft } from 'lucide-vue-next'
 
 defineProps<{
   align: TextAlign
@@ -57,7 +57,7 @@ const updateColor = (color: string) => {
   <div class="flex flex-col gap-5">
     <div class="flex justify-center">
       <UiRadioGroup
-        :icons="[AlignLeft, AlignCenter, AlignJustify]"
+        :icons="[AlignLeft, AlignCenter]"
         :values="Object.values(TextAlign)"
         :model-value="align"
         @update:model-value="updateAlign"
