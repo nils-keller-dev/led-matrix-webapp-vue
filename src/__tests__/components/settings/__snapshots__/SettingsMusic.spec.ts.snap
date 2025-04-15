@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsImage > matches snapshot 1`] = `"<image-list-stub selected="test-image"></image-list-stub>"`;
+
+exports[`SettingsMusic > matches snapshot 1`] = `
+"<ui-wrapper-stub title="Fullscreen" htmlfor="fullscreen">
+  <ui-toggle-stub id="fullscreen" modelvalue="false"></ui-toggle-stub>
+</ui-wrapper-stub>"
+`;
