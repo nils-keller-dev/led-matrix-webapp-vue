@@ -33,12 +33,10 @@ const selectedIndex = ref(0)
 const scrollSnaps = ref<number[]>([])
 
 const onPrevButtonClick = () => {
-  if (!emblaApi) return
   emblaApi.value?.scrollPrev()
 }
 
 const onNextButtonClick = () => {
-  if (!emblaApi) return
   emblaApi.value?.scrollNext()
 }
 
@@ -50,8 +48,7 @@ const debouncedOnChange = debounceFunction(
 )
 
 const onSelect = () => {
-  if (!emblaApi.value) return
-  selectedIndex.value = emblaApi.value?.selectedScrollSnap()
+  selectedIndex.value = emblaApi.value!.selectedScrollSnap()
   debouncedOnChange()
 }
 
@@ -60,11 +57,11 @@ onMounted(() => {
 
   scrollSnaps.value = emblaApi.value.scrollSnapList()
 
-  emblaApi.value?.scrollTo(props.initialValue, true)
-  selectedIndex.value = emblaApi.value?.selectedScrollSnap()
+  emblaApi.value.scrollTo(props.initialValue, true)
+  selectedIndex.value = emblaApi.value.selectedScrollSnap()
   emit('change', selectedIndex.value, true)
 
-  emblaApi.value?.on('select', onSelect)
+  emblaApi.value.on('select', onSelect)
 })
 </script>
 

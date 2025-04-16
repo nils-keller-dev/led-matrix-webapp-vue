@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiCarousel > matches snapshot 1`] = `
+"<div class="relative w-full">
+  <div class="overflow-hidden">
+    <div class="-ml-4 flex touch-pan-y">
+      <div class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4">
+        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"><span class="font-blazeface text-7xl">Slide 1</span>
+          <div class="absolute flex h-full w-5/6 items-end justify-center pb-3"><span class="text-muted-foreground"> Tap to configure </span></div>
+        </div>
+      </div>
+      <div class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4">
+        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"><span class="font-blazeface text-7xl">Slide 2</span>
+          <!--v-if-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="from-background via-background/65 absolute top-0 left-0 h-full w-1/12 bg-linear-to-r via-50% to-transparent"></div>
+  <div class="from-background via-background/65 absolute top-0 right-0 h-full w-1/12 bg-linear-to-l via-50% to-transparent"></div>
+  <ui-icon-button-stub aria-label="previous" class="absolute top-1/2 left-5 -translate-y-1/2">
+    <anonymous-stub></anonymous-stub>
+  </ui-icon-button-stub>
+  <ui-icon-button-stub aria-label="next" class="absolute top-1/2 right-5 -translate-y-1/2">
+    <anonymous-stub></anonymous-stub>
+  </ui-icon-button-stub>
+  <div class="mt-2 flex justify-center gap-1">
+    <div class="size-2 rounded-full bg-muted-foreground"></div>
+    <div class="size-2 rounded-full bg-secondary"></div>
+  </div>
+</div>"
+`;
