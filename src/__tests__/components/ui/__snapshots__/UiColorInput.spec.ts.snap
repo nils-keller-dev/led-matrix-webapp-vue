@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiColorInput > matches snapshot 1`] = `
+"<div class="flex items-center gap-3"><input id="1" aria-label="color picker" type="color" class="absolute size-0 opacity-0" value="#000000">
+  <ui-skeleton-stub class="h-5 w-25"></ui-skeleton-stub>
+  <div class="border-secondary size-6 rounded-md border" style="background-color: rgb(0, 0, 0);"></div>
+</div>"
+`;

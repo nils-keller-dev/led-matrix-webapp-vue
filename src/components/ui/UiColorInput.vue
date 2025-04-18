@@ -2,20 +2,18 @@
 import UiSkeleton from '@/components/ui/UiSkeleton.vue'
 import { fetchColorName } from '@/utils/fetchColorName'
 import debounceFunction from 'debounce-fn'
-import { ref, useTemplateRef, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 defineProps<{
   id: string
 }>()
 
-const UiColorInput = useTemplateRef<HTMLInputElement>('UiColorInput')
-
 const colorValue = defineModel<string>({ required: true })
 const displayColor = ref(colorValue.value)
 const colorName = ref('')
 
-const onColorChange = () => {
-  const color = UiColorInput.value?.value ?? ''
+const onColorChange = (event: Event) => {
+  const color = (event.target as HTMLInputElement).value
   if (!color || color === colorValue.value) return
 
   displayColor.value = color
@@ -39,7 +37,6 @@ watchEffect(() => {
   <div class="flex items-center gap-3">
     <input
       :id
-      ref="UiColorInput"
       aria-label="color picker"
       type="color"
       :value="colorValue"
