@@ -1,5 +1,6 @@
 import UiColorInput from '@/components/ui/UiColorInput.vue'
 import UiSkeleton from '@/components/ui/UiSkeleton.vue'
+import { fetchColorName } from '@/utils/fetchColorName'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import { nextTick } from 'vue'
@@ -69,5 +70,15 @@ describe('UiColorInput', () => {
     vi.runAllTimers()
     expect(wrapper.emitted('update:modelValue')![0]).toEqual(['#ff0000'])
     vi.useRealTimers()
+  })
+
+  test('calls fetchColorName correctly', async () => {
+    const wrapper = shallowMount(UiColorInput, mountingOptions)
+
+    expect(fetchColorName).toHaveBeenCalledTimes(1)
+
+    await wrapper.setProps({ modelValue: '#ff0000' })
+
+    expect(fetchColorName).toHaveBeenCalledTimes(2)
   })
 })
