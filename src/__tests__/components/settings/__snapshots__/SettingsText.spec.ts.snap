@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsText > matches snapshot 1`] = `
+"<div class="flex flex-col gap-5">
+  <div class="flex justify-center">
+    <ui-radio-group-stub icons="(props, { slots }) => vue.h(
+  Icon,
+  {
+    ...props,
+    iconNode,
+    name: iconName
+  },
+  slots
+),(props, { slots }) => vue.h(
+  Icon,
+  {
+    ...props,
+    iconNode,
+    name: iconName
+  },
+  slots
+)" values="left,center" modelvalue="left"></ui-radio-group-stub>
+  </div>
+  <ui-text-area-stub placeholder="Enter your text here" modelvalue="Test"></ui-text-area-stub>
+  <ui-wrapper-stub title="Size">
+    <div class="w-55">
+      <ui-slider-stub min="1" max="5" modelvalue="1"></ui-slider-stub>
+    </div>
+  </ui-wrapper-stub>
+  <ui-wrapper-stub title="Speed">
+    <div class="w-55">
+      <ui-slider-stub min="0" max="10" modelvalue="1"></ui-slider-stub>
+    </div>
+  </ui-wrapper-stub>
+  <ui-wrapper-stub title="Color" htmlfor="color">
+    <ui-color-input-stub id="color" modelvalue="#000000"></ui-color-input-stub>
+  </ui-wrapper-stub>
+</div>"
+`;
