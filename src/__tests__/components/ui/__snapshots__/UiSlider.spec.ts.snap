@@ -1,5 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`UiSlider > matches snapshot 1`] = `"<span class="relative flex h-6 w-full touch-none items-center"><span class="bg-secondary relative h-2 w-full overflow-hidden rounded-full"><span class="bg-primary absolute h-full" style="width: 50%;"></span></span><span style="left: calc(50% + 0px);" class="absolute -translate-x-1/2"><span class="border-primary bg-background block h-5 w-5 rounded-full border-2"></span></span></span>"`;
-
-exports[`UiWrapper > matches snapshot 1`] = `"<div class="border-secondary relative flex items-center justify-between rounded-md border px-4 py-3"><label class="absolute left-0 size-full" for="customId"></label><span class="text-muted-foreground">test title</span>child content</div>"`;
+exports[`UiSlider > matches snapshot 1`] = `"<span class="relative flex h-6 w-full touch-none items-center"><span class="bg-secondary relative h-2 w-full overflow-hidden rounded-full"><span class="bg-primary absolute h-full" style="width: 50%;"></span></span><span style="left: calc(50% + 0px);" class="absolute -translate-x-1/2 p-3"><span class="border-primary bg-background block h-5 w-5 rounded-full border-2"></span></span></span>"`;
