@@ -62,7 +62,7 @@ const stopDrag = () => {
     </span>
     <span
       :style="`left: calc(${percent}% + ${dynamicOffset}px)`"
-      class="absolute -translate-x-1/2"
+      class="absolute -translate-x-1/2 p-3"
     >
       <span
         class="border-primary bg-background block h-5 w-5 rounded-full border-2"
