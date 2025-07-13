@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 
 const props = defineProps<{
   min: number
@@ -8,6 +8,7 @@ const props = defineProps<{
 
 const modelValue = defineModel<number>({ required: true })
 const currentValue = ref(modelValue.value)
+const sliderRef = useTemplateRef<HTMLSpanElement>('sliderRef')
 
 const percent = computed(
   () => ((currentValue.value - props.min) / (props.max - props.min)) * 100
@@ -15,7 +16,9 @@ const percent = computed(
 const dynamicOffset = computed(() => -20 * (percent.value / 100) + 10)
 
 const handleDrag = (e: PointerEvent) => {
-  const target = e.target as HTMLSpanElement
+  if (!sliderRef.value) return
+
+  const target = sliderRef.value
 
   const rect = target.getBoundingClientRect()
   const x = e.clientX - rect.left
@@ -50,6 +53,7 @@ const stopDrag = () => {
 
 <template>
   <span
+    ref="sliderRef"
     class="relative flex h-6 w-full touch-none items-center"
     @pointerdown.stop="startDrag"
   >
