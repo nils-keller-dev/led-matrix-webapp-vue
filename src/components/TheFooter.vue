@@ -4,18 +4,38 @@ import UiSlider from '@/components/ui/UiSlider.vue'
 import { useStore } from '@/store/store'
 import { Moon, Sun, SunDim } from 'lucide-vue-next'
 import UiToggleButton from './ui/UiToggleButton.vue'
+import UiDrawer from './ui/UiDrawer.vue'
+import SettingsAdaptiveBrightness from './settings/SettingsAdaptiveBrightness.vue'
+import { onMounted, ref, useTemplateRef } from 'vue'
+import { usePreventBackNavigation } from '@/composables/usePreventBackNavigation'
+import { handleTapAndHold } from '@/utils/handleTapAndHold'
+
+const uiToggleButton = useTemplateRef('uiToggleButton')
 
 const store = useStore()
+const isDrawerOpen = ref(false)
 
 const onChangeBrightness = (brightness: number) => {
   patchState({ global: { brightness } })
 }
 
-const onChangeAdaptiveBrightness = (adaptiveBrightness: boolean) => {
-  patchState({ global: { adaptiveBrightness } }).then(() => {
-    store.state!.global.adaptiveBrightness = adaptiveBrightness
+const onChangeEnabled = (enabled: boolean) => {
+  patchState({ adaptiveBrightness: { enabled } }).then(() => {
+    store.state!.adaptiveBrightness.enabled = enabled
   })
 }
+
+usePreventBackNavigation(() => {
+  isDrawerOpen.value = false
+})
+
+onMounted(() => {
+  uiToggleButton.value &&
+    handleTapAndHold(
+      uiToggleButton.value.$el,
+      () => (isDrawerOpen.value = true)
+    )
+})
 </script>
 
 <template>
@@ -31,9 +51,15 @@ const onChangeAdaptiveBrightness = (adaptiveBrightness: boolean) => {
       <Sun class="text-muted-foreground shrink-0" />
     </div>
     <UiToggleButton
-      :model-value="store.state!.global.adaptiveBrightness!"
-      @update:model-value="onChangeAdaptiveBrightness"
+      ref="uiToggleButton"
+      :model-value="store.state!.adaptiveBrightness.enabled!"
+      @update:model-value="onChangeEnabled"
       :icon="Moon"
     />
+    <UiDrawer v-model:open="isDrawerOpen">
+      <SettingsAdaptiveBrightness
+        :brightness="store.state!.adaptiveBrightness.brightness!"
+      />
+    </UiDrawer>
   </div>
 </template>

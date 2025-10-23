@@ -3,7 +3,11 @@ import { TextAlign } from '@/constants/enums/TextAlign'
 interface Global {
   mode?: string
   brightness?: number
-  adaptiveBrightness?: boolean
+}
+
+interface AdaptiveBrightness {
+  enabled?: boolean
+  brightness?: number
 }
 
 interface Clock {
@@ -30,6 +34,7 @@ interface Text {
 
 export interface State {
   global: Global
+  adaptiveBrightness: AdaptiveBrightness
   clock: Clock
   music: Music
   image: Image
