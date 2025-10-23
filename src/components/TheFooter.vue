@@ -12,7 +12,9 @@ const onChangeBrightness = (brightness: number) => {
 }
 
 const onChangeAdaptiveBrightness = (adaptiveBrightness: boolean) => {
-  patchState({ global: { adaptiveBrightness } })
+  patchState({ global: { adaptiveBrightness } }).then(() => {
+    store.state!.global.adaptiveBrightness = adaptiveBrightness
+  })
 }
 </script>
 
