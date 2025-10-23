@@ -33,10 +33,6 @@ const onChangeCarouselIndex = (index: number, initial?: boolean) => {
   patchState({ global: { mode: Mode[CAROUSEL_ITEMS[index].id] } })
 }
 
-const onChangeBrightness = (brightness: number) => {
-  patchState({ global: { brightness } })
-}
-
 getState().then((newState) => {
   store.state = newState
 })
@@ -61,10 +57,7 @@ usePreventBackNavigation(() => {
           @change="onChangeCarouselIndex"
           @click-settings="onClickCarouselSettings"
         />
-        <TheFooter
-          :model-value="store.state.global.brightness!"
-          @update:model-value="onChangeBrightness"
-        />
+        <TheFooter />
       </div>
       <UiDrawer v-model:open="isDrawerOpen">
         <template v-if="currentCarouselIndex >= 0">
