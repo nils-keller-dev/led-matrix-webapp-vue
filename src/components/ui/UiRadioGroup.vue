@@ -15,14 +15,11 @@ const selected = defineModel<string>({ required: true })
       v-for="(value, index) in values"
       :key="value"
       class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md"
-      :for="value"
     >
       <input
-        :id="value"
         v-model="selected"
         type="radio"
         class="hidden"
-        name="align"
         :value
       />
       <component :is="icons[index]" />
