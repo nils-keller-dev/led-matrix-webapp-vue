@@ -25,10 +25,6 @@ const onChangeEnabled = (enabled: boolean) => {
   })
 }
 
-usePreventBackNavigation(() => {
-  isDrawerOpen.value = false
-})
-
 onMounted(() => {
   uiToggleButton.value &&
     handleTapAndHold(

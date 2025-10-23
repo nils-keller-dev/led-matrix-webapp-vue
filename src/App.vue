@@ -40,10 +40,6 @@ getState().then((newState) => {
 getImages().then((newImages) => {
   store.images = newImages
 })
-
-usePreventBackNavigation(() => {
-  isDrawerOpen.value = false
-})
 </script>
 
 <template>
