@@ -2,13 +2,12 @@
 import { patchState } from '@/api/state.patch'
 import UiSlider from '@/components/ui/UiSlider.vue'
 import { useStore } from '@/store/store'
-import { Moon, Sun, SunDim } from 'lucide-vue-next'
-import UiToggleButton from './ui/UiToggleButton.vue'
-import UiDrawer from './ui/UiDrawer.vue'
-import SettingsAdaptiveBrightness from './settings/SettingsAdaptiveBrightness.vue'
-import { onMounted, ref, useTemplateRef } from 'vue'
-import { usePreventBackNavigation } from '@/composables/usePreventBackNavigation'
 import { handleTapAndHold } from '@/utils/handleTapAndHold'
+import { Moon, Sun, SunDim } from 'lucide-vue-next'
+import { onMounted, ref, useTemplateRef } from 'vue'
+import SettingsAdaptiveBrightness from './settings/SettingsAdaptiveBrightness.vue'
+import UiDrawer from './ui/UiDrawer.vue'
+import UiToggleButton from './ui/UiToggleButton.vue'
 
 const uiToggleButton = useTemplateRef('uiToggleButton')
 
