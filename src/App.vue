@@ -29,7 +29,7 @@ const onChangeCarouselIndex = (index: number, initial?: boolean) => {
   currentCarouselIndex.value = index
 
   if (initial) return
-  patchState({ global: { mode: Mode[CAROUSEL_ITEMS[index].id] } })
+  patchState({ global: { mode: Mode[CAROUSEL_ITEMS[index]?.id ?? 0] } })
 }
 
 getState().then((newState) => {
