@@ -4,10 +4,10 @@ import { Mode } from '@/constants/enums/Mode'
 import debounceFunction from 'debounce-fn'
 import emblaCarouselVue from 'embla-carousel-vue'
 import { ArrowLeft, ArrowRight } from 'lucide-vue-next'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, type FunctionalComponent } from 'vue'
 
 type CarouselItem = {
-  title: string
+  icon: FunctionalComponent
   id: Mode
   hasConfiguration: boolean
 }
@@ -70,14 +70,14 @@ onMounted(() => {
     <div ref="emblaRef" class="overflow-hidden">
       <div class="-ml-4 flex touch-pan-y">
         <div
-          v-for="{ id, title, hasConfiguration } in slides"
+          v-for="{ id, icon, hasConfiguration } in slides"
           :key="id"
           class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4"
         >
           <div
             class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"
           >
-            <span class="font-blazeface text-7xl">{{ title }}</span>
+            <component :is="icon" class="size-32" />
             <div
               v-if="hasConfiguration"
               class="absolute flex h-full w-5/6 items-end justify-center pb-3"

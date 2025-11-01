@@ -1,29 +1,30 @@
 import { Mode } from '@/constants/enums/Mode'
+import { CaseSensitive, Clock, Image, Moon, Music } from 'lucide-vue-next'
 
 export const CAROUSEL_ITEMS = [
   {
     id: Mode.clock,
-    title: 'Clock',
+    icon: Clock,
     hasConfiguration: true
   },
   {
     id: Mode.music,
-    title: 'Music',
+    icon: Music,
     hasConfiguration: true
   },
   {
     id: Mode.image,
-    title: 'Image',
+    icon: Image,
     hasConfiguration: true
   },
   {
     id: Mode.text,
-    title: 'Text',
+    icon: CaseSensitive,
     hasConfiguration: true
   },
   {
     id: Mode.idle,
-    title: 'Idle',
+    icon: Moon,
     hasConfiguration: false
   }
 ]

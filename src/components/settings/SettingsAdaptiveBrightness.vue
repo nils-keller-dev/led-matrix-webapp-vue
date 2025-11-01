@@ -22,7 +22,7 @@ const updateBrightness = (brightness: number) => {
     <UiWrapper title="Brightness">
       <div class="w-55">
         <UiSlider
-          :min="3"
+          :min="0"
           :max="100"
           :model-value="brightness"
           @update:model-value="updateBrightness"

@@ -3,7 +3,7 @@ import { patchState } from '@/api/state.patch'
 import UiSlider from '@/components/ui/UiSlider.vue'
 import { useStore } from '@/store/store'
 import { handleTapAndHold } from '@/utils/handleTapAndHold'
-import { Moon, Sun, SunDim } from 'lucide-vue-next'
+import { Sun, SunDim, SunMoon } from 'lucide-vue-next'
 import { onMounted, ref, useTemplateRef } from 'vue'
 import SettingsAdaptiveBrightness from './settings/SettingsAdaptiveBrightness.vue'
 import UiDrawer from './ui/UiDrawer.vue'
@@ -49,7 +49,7 @@ onMounted(() => {
       ref="uiToggleButton"
       :model-value="store.state!.adaptiveBrightness.enabled!"
       @update:model-value="onChangeEnabled"
-      :icon="Moon"
+      :icon="SunMoon"
     />
     <UiDrawer v-model:open="isDrawerOpen">
       <SettingsAdaptiveBrightness
