@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getImages } from '@/api/images.get'
-import { getState } from '@/api/state.get'
 import { patchState } from '@/api/state.patch'
 import TheFooter from '@/components/TheFooter.vue'
 import TheHeader from '@/components/TheHeader.vue'

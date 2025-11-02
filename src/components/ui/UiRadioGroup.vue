@@ -16,13 +16,8 @@ const selected = defineModel<string>({ required: true })
       :key="value"
       class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md"
     >
-      <input
-        v-model="selected"
-        type="radio"
-        class="hidden"
-        :value
-      />
-      <component :is="icons[index]" />
+      <input v-model="selected" type="radio" class="hidden" :value />
+      <Component :is="icons[index]" />
     </label>
   </div>
 </template>

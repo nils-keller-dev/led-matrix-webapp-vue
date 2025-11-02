@@ -16,6 +16,6 @@ defineProps<{
     }"
   >
     <input v-model="value" type="checkbox" class="hidden" />
-    <component :is="icon" />
+    <Component :is="icon" />
   </label>
 </template>
