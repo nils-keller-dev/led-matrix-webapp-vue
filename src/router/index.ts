@@ -6,12 +6,10 @@ export default createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: HomeView
     },
     {
       path: '/settings',
-      name: 'settings',
       component: () => import('../views/SettingsView.vue')
     }
   ]

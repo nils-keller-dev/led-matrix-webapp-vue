@@ -2,35 +2,13 @@
 import { patchState } from '@/api/state.patch'
 import UiSlider from '@/components/ui/UiSlider.vue'
 import { useStore } from '@/store/store'
-import { handleTapAndHold } from '@/utils/handleTapAndHold'
-import { Sun, SunDim, SunMoon } from 'lucide-vue-next'
-import { onMounted, ref, useTemplateRef } from 'vue'
-import SettingsAdaptiveBrightness from './settings/SettingsAdaptiveBrightness.vue'
-import UiDrawer from './ui/UiDrawer.vue'
-import UiToggleButton from './ui/UiToggleButton.vue'
-
-const uiToggleButton = useTemplateRef('uiToggleButton')
+import { Sun, SunDim } from 'lucide-vue-next'
 
 const store = useStore()
-const isDrawerOpen = ref(false)
 
 const onChangeBrightness = (brightness: number) => {
   patchState({ global: { brightness } })
 }
-
-const onChangeEnabled = (enabled: boolean) => {
-  patchState({ adaptiveBrightness: { enabled } }).then(() => {
-    store.state!.adaptiveBrightness.enabled = enabled
-  })
-}
-
-onMounted(() => {
-  uiToggleButton.value &&
-    handleTapAndHold(
-      uiToggleButton.value.$el,
-      () => (isDrawerOpen.value = true)
-    )
-})
 </script>
 
 <template>
@@ -45,16 +23,5 @@ onMounted(() => {
       />
       <Sun class="text-muted-foreground shrink-0" />
     </div>
-    <UiToggleButton
-      ref="uiToggleButton"
-      :model-value="store.state!.adaptiveBrightness.enabled!"
-      @update:model-value="onChangeEnabled"
-      :icon="SunMoon"
-    />
-    <UiDrawer v-model:open="isDrawerOpen">
-      <SettingsAdaptiveBrightness
-        :brightness="store.state!.adaptiveBrightness.brightness!"
-      />
-    </UiDrawer>
   </div>
 </template>
