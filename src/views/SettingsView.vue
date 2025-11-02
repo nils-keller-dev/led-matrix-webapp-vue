@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import packageJson from '@/../package.json'
 import { patchState } from '@/api/state.patch'
-import UiSlider from '@/components/ui/UiSlider.vue'
+import BrightnessSlider from '@/components/BrightnessSlider.vue'
 import UiToggle from '@/components/ui/UiToggle.vue'
 import { useStore } from '@/store/store'
-import { ChevronLeft, Sun, SunDim } from 'lucide-vue-next'
+import { ChevronLeft } from 'lucide-vue-next'
 
 const version = packageJson.version
 
@@ -51,19 +51,12 @@ const updateBrightness = (brightness: number) => {
           />
         </label>
         <Transition name="slide-fade">
-          <div
+          <BrightnessSlider
             v-if="store.state!.adaptiveBrightness.enabled"
-            class="border-secondary flex shrink-0 grow flex-row items-center gap-3 border-t pt-3"
-          >
-            <SunDim class="text-muted-foreground shrink-0" />
-            <UiSlider
-              :model-value="store.state!.adaptiveBrightness.brightness!"
-              @update:model-value="updateBrightness"
-              :min="0"
-              :max="100"
-            />
-            <Sun class="text-muted-foreground shrink-0" />
-          </div>
+            class="border-secondary border-t pt-3"
+            :model-value="store.state!.adaptiveBrightness.brightness!"
+            @update:model-value="updateBrightness"
+          />
         </Transition>
       </div>
     </main>
