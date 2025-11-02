@@ -4,7 +4,7 @@ import { patchState } from '@/api/state.patch'
 import BrightnessSlider from '@/components/BrightnessSlider.vue'
 import UiToggle from '@/components/ui/UiToggle.vue'
 import { useStore } from '@/store/store'
-import { ChevronLeft } from 'lucide-vue-next'
+import { ChevronLeft, CircleQuestionMark } from 'lucide-vue-next'
 
 const version = packageJson.version
 
@@ -20,6 +20,12 @@ const updateBrightness = (brightness: number) => {
   patchState({ adaptiveBrightness: { brightness } }).then(() => {
     store.state!.adaptiveBrightness.brightness = brightness
   })
+}
+
+const onClickTip = () => {
+  window.alert(
+    'Automatically set the brightness to the value below during night time (between sunset and sunrise).'
+  )
 }
 </script>
 
@@ -43,7 +49,10 @@ const updateBrightness = (brightness: number) => {
         :class="{ 'max-h-25': store.state!.adaptiveBrightness.enabled }"
       >
         <label class="flex items-center justify-between" for="enabled">
-          <span class="text-muted-foreground">Adaptive brightness</span>
+          <span class="text-muted-foreground inline-flex items-center gap-2">
+            Adaptive brightness
+            <CircleQuestionMark class="size-4" @click.prevent="onClickTip" />
+          </span>
           <UiToggle
             id="enabled"
             :model-value="store.state!.adaptiveBrightness.enabled!"
