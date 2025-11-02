@@ -2,16 +2,10 @@
 import { Sun, SunDim } from 'lucide-vue-next'
 import UiSlider from '@/components/ui/UiSlider.vue'
 
-withDefaults(
-  defineProps<{
-    min?: number
-    max?: number
-  }>(),
-  {
-    min: 0,
-    max: 100
-  }
-)
+const { min = 0, max = 100 } = defineProps<{
+  min?: number
+  max?: number
+}>()
 
 const value = defineModel<number>({ required: true })
 </script>
