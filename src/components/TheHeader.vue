@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import packageJson from '@/../package.json'
-
-const version = packageJson.version
+import { Settings } from 'lucide-vue-next'
 </script>
 
 <template>
@@ -12,6 +10,8 @@ const version = packageJson.version
       <img src="/logo.svg" alt="logo" class="size-14" />
       <span>led-matrix-webapp</span>
     </div>
-    <a href="/api/state" class="text-secondary"> v{{ version }} </a>
+    <RouterLink to="/settings">
+      <Settings />
+    </RouterLink>
   </header>
 </template>
