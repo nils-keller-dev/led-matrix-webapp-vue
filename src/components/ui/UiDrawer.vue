@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { usePreventBackNavigation } from '@/composables/usePreventBackNavigation'
 import {
   DrawerContent,
   DrawerOverlay,
@@ -9,8 +8,6 @@ import {
 } from 'vaul-vue'
 
 const isOpen = defineModel<boolean>('open')
-
-usePreventBackNavigation(() => (isOpen.value = false))
 </script>
 
 <template>
