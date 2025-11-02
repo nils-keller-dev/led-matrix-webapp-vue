@@ -19,7 +19,7 @@ describe('UiSlider', () => {
   test('stops propagation on pointerdown', () => {
     const wrapper = shallowMount(UiSlider, mountingOptions)
 
-    const event = new MouseEvent('pointerdown')
+    const event = new PointerEvent('pointerdown')
     const stopPropagation = vi.fn()
     event.stopPropagation = stopPropagation
 
@@ -28,21 +28,21 @@ describe('UiSlider', () => {
     expect(stopPropagation).toHaveBeenCalledOnce()
   })
 
-  test('updates v-model', () => {
+  test('updates v-model', async () => {
     const wrapper = shallowMount(UiSlider, mountingOptions)
 
     const root = wrapper.find('span')
     root.element.getBoundingClientRect = () =>
       ({ width: 100, left: 0 }) as DOMRect
 
-    root.trigger('pointerdown', { clientX: 10 })
+    root.element.dispatchEvent(new PointerEvent('pointerdown', { clientX: 10 }))
 
     expect(wrapper.emitted('update:modelValue')).toBeUndefined()
 
-    const pointerUpEvent = new MouseEvent('pointerup')
-    window.dispatchEvent(pointerUpEvent)
+    const pointerUpEvent = new PointerEvent('pointerup')
+    await window.dispatchEvent(pointerUpEvent)
 
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual([10])
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([10])
   })
 
   test('does not update v-model when the slider did not move', () => {
@@ -54,7 +54,7 @@ describe('UiSlider', () => {
 
     root.trigger('pointerdown', { clientX: 50 })
 
-    const pointerUpEvent = new MouseEvent('pointerup')
+    const pointerUpEvent = new PointerEvent('pointerup')
     window.dispatchEvent(pointerUpEvent)
 
     expect(wrapper.emitted('update:modelValue')).toBeUndefined()

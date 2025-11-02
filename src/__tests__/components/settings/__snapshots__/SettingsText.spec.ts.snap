@@ -3,17 +3,19 @@
 exports[`SettingsText > matches snapshot 1`] = `
 "<div class="flex flex-col gap-5">
   <div class="flex justify-center">
-    <ui-radio-group-stub icons="(props, { slots }) => vue.h(
+    <ui-radio-group-stub icons="(props, { slots, attrs }) => vue.h(
   Icon,
   {
+    ...attrs,
     ...props,
     iconNode,
     name: iconName
   },
   slots
-),(props, { slots }) => vue.h(
+),(props, { slots, attrs }) => vue.h(
   Icon,
   {
+    ...attrs,
     ...props,
     iconNode,
     name: iconName

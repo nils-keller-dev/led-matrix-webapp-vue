@@ -2,6 +2,9 @@
 
 exports[`TheHeader > matches snapshot 1`] = `
 "<header class="border-b-secondary flex items-center justify-between border-b pr-4">
-  <div class="text-muted-foreground flex items-center gap-1"><img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3e%3cpath%20fill='%23fafafa'%20d='M150%20150h80v80h-80zM270%20150h80v80h-80z'/%3e%3cpath%20fill='%23a1a1aa'%20d='M150%20270h80v80h-80z'/%3e%3cpath%20fill='%23303036'%20d='M270%20270h80v80h-80z'/%3e%3c/svg%3e" alt="logo" class="size-14"><span>led-matrix-webapp</span></div><a href="/api/state" class="text-secondary"> v0.0.0</a>
+  <div class="text-muted-foreground flex items-center gap-1"><img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3e%3cpath%20fill='%23fafafa'%20d='M150%20150h80v80h-80zM270%20150h80v80h-80z'/%3e%3cpath%20fill='%23a1a1aa'%20d='M150%20270h80v80h-80z'/%3e%3cpath%20fill='%23303036'%20d='M270%20270h80v80h-80z'/%3e%3c/svg%3e" alt="logo" class="size-14"><span>led-matrix-webapp</span></div>
+  <routerlink to="/settings">
+    <anonymous-stub></anonymous-stub>
+  </routerlink>
 </header>"
 `;

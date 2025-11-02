@@ -11,11 +11,10 @@ const onChangeBrightness = (brightness: number) => {
 </script>
 
 <template>
-  <div class="flex w-full gap-5 p-7">
-    <BrightnessSlider
-      :model-value="store.state!.global.brightness!"
-      :min="3"
-      @update:model-value="onChangeBrightness"
-    />
-  </div>
+  <BrightnessSlider
+    class="p-7"
+    :model-value="store.state!.global.brightness!"
+    :min="3"
+    @update:model-value="onChangeBrightness"
+  />
 </template>

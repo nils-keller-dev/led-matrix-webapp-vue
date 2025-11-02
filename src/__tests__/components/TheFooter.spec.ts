@@ -1,26 +1,34 @@
+import { patchState } from '@/api/state.patch'
+import BrightnessSlider from '@/components/BrightnessSlider.vue'
 import TheFooter from '@/components/TheFooter.vue'
-import UiSlider from '@/components/ui/UiSlider.vue'
+import { createTestingPinia } from '@pinia/testing'
 import { shallowMount } from '@vue/test-utils'
-import { describe, expect, test } from 'vitest'
+import { setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 
-const mountingOptions = {
-  props: {
-    modelValue: 50
-  }
-}
+vi.mock('@/api/state.patch')
 
 describe('TheFooter', () => {
+  beforeEach(() => {
+    setActivePinia(
+      createTestingPinia({
+        createSpy: vi.fn,
+        initialState: { store: { state: { global: { brightness: 50 } } } }
+      })
+    )
+  })
+
   test('matches snapshot', () => {
-    const wrapper = shallowMount(TheFooter, mountingOptions)
+    const wrapper = shallowMount(TheFooter)
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  test('updates v-model', () => {
-    const wrapper = shallowMount(TheFooter, mountingOptions)
+  test('calls patchState on brightness change', () => {
+    const wrapper = shallowMount(TheFooter)
 
-    const uiSlider = wrapper.findComponent(UiSlider)
-    uiSlider.vm.$emit('update:modelValue', 75)
+    const brightnessSlider = wrapper.findComponent(BrightnessSlider)
+    brightnessSlider.vm.$emit('update:modelValue', 75)
 
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual([75])
+    expect(patchState).toHaveBeenCalledWith({ global: { brightness: 75 } })
   })
 })

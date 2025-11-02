@@ -5,6 +5,7 @@ import { shallowMount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import UiIconButton from '@/components/ui/UiIconButton.vue'
 import emblaCarouselVue from 'embla-carousel-vue'
+import { Clock, Sun } from 'lucide-vue-next'
 
 vi.mock('embla-carousel-vue', () => ({
   default: vi.fn().mockReturnValue([
@@ -24,12 +25,12 @@ const mountingOptions = {
   props: {
     slides: [
       {
-        title: 'Slide 1',
+        icon: Clock,
         id: Mode.clock,
         hasConfiguration: true
       },
       {
-        title: 'Slide 2',
+        icon: Sun,
         id: Mode.idle,
         hasConfiguration: false
       }
@@ -51,10 +52,10 @@ describe('UiCarousel', () => {
   test('renders slides correctly', () => {
     const wrapper = shallowMount(UiCarousel, mountingOptions)
 
-    expect(wrapper.html()).toContain('Slide 1')
-    expect(wrapper.html()).toContain('Slide 2')
+    expect(wrapper.findComponent(Sun).exists()).toBe(true)
+    expect(wrapper.findComponent(Clock).exists()).toBe(true)
 
-    const configuration = wrapper.findAll('span + div')
+    const configuration = wrapper.findAll('span')
     expect(configuration.length).toBe(1)
   })
 
@@ -65,15 +66,15 @@ describe('UiCarousel', () => {
     const dots = wrapper.findAll('ui-icon-button-stub + div div')
 
     expect(dots.length).toBe(2)
-    expect(dots[0].attributes('class')).toContain('bg-muted-foreground')
-    expect(dots[1].attributes('class')).toContain('bg-secondary')
+    expect(dots[0]!.attributes('class')).toContain('bg-muted-foreground')
+    expect(dots[1]!.attributes('class')).toContain('bg-secondary')
   })
 
   test('emits clickSettings when settings are clicked', async () => {
     const wrapper = shallowMount(UiCarousel, mountingOptions)
-    const configuration = wrapper.findAll('span + div')
+    const configuration = wrapper.findAll('span')
 
-    await configuration[0].trigger('click')
+    await configuration[0]!.trigger('click')
     expect(wrapper.emitted('clickSettings')).toBeTruthy()
   })
 
@@ -89,7 +90,7 @@ describe('UiCarousel', () => {
     const wrapper = shallowMount(UiCarousel, mountingOptions)
 
     expect(emblaCarouselVue()[1].value?.scrollNext).not.toHaveBeenCalled()
-    await wrapper.findAllComponents(UiIconButton)[1].trigger('click')
+    await wrapper.findAllComponents(UiIconButton)[1]!.trigger('click')
     expect(emblaCarouselVue()[1].value?.scrollNext).toHaveBeenCalled()
   })
 
@@ -114,8 +115,8 @@ describe('UiCarousel', () => {
     const wrapper = shallowMount(UiCarousel, mountingOptions)
 
     const uiIconButtons = wrapper.findAllComponents(UiIconButton)
-    await uiIconButtons[0].trigger('click')
-    await uiIconButtons[1].trigger('click')
+    await uiIconButtons[0]!.trigger('click')
+    await uiIconButtons[1]!.trigger('click')
 
     expect(wrapper.emitted('change')).toBeUndefined()
   })

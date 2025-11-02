@@ -9,7 +9,6 @@ import SettingsText from '@/components/settings/SettingsText.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import UiCarousel from '@/components/ui/UiCarousel.vue'
 import UiDrawer from '@/components/ui/UiDrawer.vue'
-import { usePreventBackNavigation } from '@/composables/usePreventBackNavigation'
 import { Mode } from '@/constants/enums/Mode'
 import { TextAlign } from '@/constants/enums/TextAlign'
 import { useStore } from '@/store/store'
@@ -87,27 +86,6 @@ describe('App', () => {
 
     expect(getState).toHaveBeenCalledOnce()
     expect(getImages).toHaveBeenCalledOnce()
-  })
-
-  test('initializes usePreventBackNavigation with drawer close function', async () => {
-    let mockedCallback: undefined | (() => void)
-    vi.mocked(usePreventBackNavigation).mockImplementation(
-      (callback) => (mockedCallback = callback)
-    )
-
-    const wrapper = shallowMount(App)
-    expect(usePreventBackNavigation).toHaveBeenCalledOnce()
-
-    await nextTick()
-    const drawer = wrapper.findComponent(UiDrawer)
-
-    await drawer.vm.$emit('update:open', true)
-    expect(drawer.props().open).toBe(true)
-
-    mockedCallback?.()
-    await nextTick()
-
-    expect(drawer.props().open).toBe(false)
   })
 
   test('opens drawer when carousel settings are clicked', async () => {

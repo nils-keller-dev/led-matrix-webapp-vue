@@ -11,10 +11,4 @@ describe('TheHeader', () => {
     const wrapper = shallowMount(TheHeader)
     expect(wrapper.html()).toMatchSnapshot()
   })
-
-  test('renders with version number', () => {
-    const wrapper = shallowMount(TheHeader)
-
-    expect(wrapper.text()).toContain('v0.0.0')
-  })
 })

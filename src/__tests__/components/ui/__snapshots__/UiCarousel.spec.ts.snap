@@ -5,12 +5,14 @@ exports[`UiCarousel > matches snapshot 1`] = `
   <div class="overflow-hidden">
     <div class="-ml-4 flex touch-pan-y">
       <div class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4">
-        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"><span class="font-blazeface text-7xl">Slide 1</span>
+        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border">
+          <anonymous-stub class="size-32"></anonymous-stub>
           <div class="absolute flex h-full w-5/6 items-end justify-center pb-3"><span class="text-muted-foreground"> Tap to configure </span></div>
         </div>
       </div>
       <div class="box-content aspect-square w-9/12 shrink-0 justify-center pl-4">
-        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"><span class="font-blazeface text-7xl">Slide 2</span>
+        <div class="border-secondary relative flex size-full items-center justify-center rounded-3xl border">
+          <anonymous-stub class="size-32"></anonymous-stub>
           <!--v-if-->
         </div>
       </div>

@@ -4,7 +4,7 @@ exports[`UiDialog > matches snapshot 1`] = `
 "<dialog-root-stub open="true" defaultopen="false" modal="true">
   <dialog-portal-stub disabled="false" defer="false" forcemount="false">
     <dialog-overlay-stub forcemount="false" aschild="false" class="size-screen fixed top-0 z-30 backdrop-blur-xs backdrop-brightness-50"></dialog-overlay-stub>
-    <dialog-content-stub forcemount="false" trapfocus="false" disableoutsidepointerevents="false" aschild="false" class="bg-background border-secondary fixed top-1/2 left-1/2 z-40 w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-xl border p-4 outline-hidden">
+    <dialog-content-stub forcemount="false" disableoutsidepointerevents="false" aschild="false" class="bg-background border-secondary fixed top-1/2 left-1/2 z-40 w-10/12 -translate-x-1/2 -translate-y-1/2 rounded-xl border p-4 outline-hidden">
       <dialog-title-stub aschild="false" as="h2" class="hidden"></dialog-title-stub>child content
     </dialog-content-stub>
   </dialog-portal-stub>

@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`UiRadioGroup > matches snapshot 1`] = `
-"<div class="flex gap-2"><label class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md" for="value1"><input id="value1" type="radio" class="hidden" name="align" value="value1">
+"<div class="flex gap-2"><label class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md"><input type="radio" class="hidden" value="value1">
     <anonymous-stub></anonymous-stub>
-  </label><label class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md" for="value2"><input id="value2" type="radio" class="hidden" name="align" value="value2">
+  </label><label class="has-checked:bg-secondary flex size-10 items-center justify-center rounded-md"><input type="radio" class="hidden" value="value2">
     <anonymous-stub></anonymous-stub>
   </label></div>"
 `;
