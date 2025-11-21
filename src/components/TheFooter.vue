@@ -5,15 +5,15 @@ import { useStore } from '@/store/store'
 
 const store = useStore()
 
-const onChangeBrightness = (brightness: number) => {
-  patchState({ global: { brightness } })
+const onChangeBrightness = (current: number) => {
+  patchState({ global: { brightness: { current, day: current } } })
 }
 </script>
 
 <template>
   <BrightnessSlider
     class="p-7"
-    :model-value="store.state!.global.brightness!"
+    :model-value="store.state!.global.brightness!.current!"
     :min="3"
     @update:model-value="onChangeBrightness"
   />

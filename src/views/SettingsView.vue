@@ -10,15 +10,15 @@ const version = packageJson.version
 
 const store = useStore()
 
-const updateEnabled = (enabled: boolean) => {
-  patchState({ adaptiveBrightness: { enabled } }).then(() => {
-    store.state!.adaptiveBrightness.enabled = enabled
+const updateAdaptive = (adaptive: boolean) => {
+  patchState({ global: { brightness: { adaptive } } }).then(() => {
+    store.state!.global.brightness!.adaptive = adaptive
   })
 }
 
-const updateBrightness = (brightness: number) => {
-  patchState({ adaptiveBrightness: { brightness } }).then(() => {
-    store.state!.adaptiveBrightness.brightness = brightness
+const updateNight = (night: number) => {
+  patchState({ global: { brightness: { night } } }).then(() => {
+    store.state!.global.brightness!.night = night
   })
 }
 
@@ -46,25 +46,25 @@ const onClickTip = () => {
     <main class="grow overflow-y-auto p-4">
       <div
         class="border-secondary relative flex max-h-12.5 flex-col gap-3 overflow-hidden rounded-md border px-4 py-3 transition-all duration-200"
-        :class="{ 'max-h-25': store.state!.adaptiveBrightness.enabled }"
+        :class="{ 'max-h-25': store.state!.global.brightness!.adaptive }"
       >
-        <label class="flex items-center justify-between" for="enabled">
+        <label class="flex items-center justify-between" for="adaptive">
           <span class="text-muted-foreground inline-flex items-center gap-2">
             Adaptive brightness
             <CircleQuestionMark class="size-4" @click.prevent="onClickTip" />
           </span>
           <UiToggle
-            id="enabled"
-            :model-value="store.state!.adaptiveBrightness.enabled!"
-            @update:model-value="updateEnabled"
+            id="adaptive"
+            :model-value="store.state!.global.brightness!.adaptive!"
+            @update:model-value="updateAdaptive"
           />
         </label>
         <Transition name="slide-fade">
           <BrightnessSlider
-            v-if="store.state!.adaptiveBrightness.enabled"
+            v-if="store.state!.global.brightness!.adaptive"
             class="border-secondary border-t pt-3"
-            :model-value="store.state!.adaptiveBrightness.brightness!"
-            @update:model-value="updateBrightness"
+            :model-value="store.state!.global.brightness!.night!"
+            @update:model-value="updateNight"
           />
         </Transition>
       </div>
