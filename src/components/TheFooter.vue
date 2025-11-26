@@ -6,7 +6,7 @@ import { useStore } from '@/store/store'
 const store = useStore()
 
 const onChangeBrightness = (current: number) => {
-  patchState({ global: { brightness: { current, day: current } } })
+  patchState({ global: { brightness: { current } } })
 }
 </script>
 
