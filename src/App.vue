@@ -3,8 +3,10 @@ import { getImages } from '@/api/images.get'
 import { getState } from '@/api/state.get'
 import { useStore } from '@/store/store'
 import { LoaderCircle } from 'lucide-vue-next'
+import { useWebsocket } from './store/websocket'
 
 const store = useStore()
+useWebsocket()
 
 getState().then((newState) => {
   store.state = newState

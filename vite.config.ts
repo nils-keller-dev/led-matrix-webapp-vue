@@ -3,18 +3,13 @@ import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 
-const endpointData = {
-  mockUrl: 'http://localhost:3000',
-  endpoints: ['state', 'image', 'images']
-}
-
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
   server: {
-    proxy: endpointData.endpoints.reduce((accumulator, currentValue) => {
-      accumulator[`/api/${currentValue}`] = { target: endpointData.mockUrl }
-      return accumulator
-    }, {})
+    proxy: {
+      '^/api/.*': 'http://localhost:3000',
+      '/ws': 'ws://localhost:3000'
+    }
   },
   resolve: {
     alias: {
