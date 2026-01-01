@@ -2,7 +2,7 @@
 
 BUILD_DIR="dist"
 PI_USER="admin"
-PI_HOST="192.168.178.43"
+PI_HOST="192.168.178.74"
 PI_TARGET_DIR="/home/admin/led-matrix-application/led_matrix_application/webapp"
 DELETE_OLD_FILES=true
 

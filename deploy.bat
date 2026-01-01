@@ -3,7 +3,7 @@ setlocal
 
 set BUILD_DIR=dist
 set PI_USER=admin
-set PI_HOST=192.168.178.43
+set PI_HOST=192.168.178.74
 set PI_TARGET_DIR=/home/admin/led-matrix-application/led_matrix_application/webapp
 set PSCP_PATH=pscp -i "C:\.ssh\LED.ppk"
 set PLINK_PATH=plink -i "C:\.ssh\LED.ppk"
