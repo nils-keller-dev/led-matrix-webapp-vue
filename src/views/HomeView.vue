@@ -11,7 +11,6 @@ import UiDrawer from '@/components/ui/UiDrawer.vue'
 import { CAROUSEL_ITEMS } from '@/constants/CarouselItems'
 import { Mode } from '@/constants/enums/Mode'
 import { useStore } from '@/store/store'
-import { LoaderCircle } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const store = useStore()
@@ -71,8 +70,5 @@ const onChangeCarouselIndex = (index: number, initial?: boolean) => {
         </template>
       </UiDrawer>
     </template>
-    <div v-else class="size-screen flex items-center justify-center">
-      <LoaderCircle class="size-5 animate-spin" />
-    </div>
   </div>
 </template>
