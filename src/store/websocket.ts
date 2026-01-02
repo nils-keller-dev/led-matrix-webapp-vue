@@ -1,18 +1,59 @@
+import { MessageAction, MessageType } from '@/constants/enums/Message'
+import type {
+  RequestMessage,
+  ResponseMessage
+} from '@/constants/interfaces/Websocket'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { State } from '../constants/interfaces/State'
+import { useStore } from './store'
 
 export const useWebsocket = defineStore('websocket', () => {
   const websocket = ref(new WebSocket('/ws/'))
+  const isConnected = ref(false)
+
+  const store = useStore()
 
   websocket.value.addEventListener('open', () => {
-    console.log('CONNECTED')
-    setInterval(() => {
-      console.log('SENT: ping')
-      websocket.value.send('ping')
-    }, 1000)
+    isConnected.value = true
+    send(MessageType.State, MessageAction.Get)
+    send(MessageType.Images, MessageAction.Get)
   })
 
+  websocket.value.addEventListener('message', (event: MessageEvent) => {
+    const message: ResponseMessage = JSON.parse(event.data)
+
+    switch (message.type) {
+      case MessageType.State:
+        //TODO: deep merge instead of assigning?
+        store.state = message.body as State
+        break
+      case MessageType.Images:
+        store.images = message.body as string[]
+        break
+      default:
+        console.warn('Unknown message type:', message.type)
+    }
+  })
+
+  const send = (
+    type: MessageType,
+    action: MessageAction,
+    body?: RequestMessage['body']
+  ) => {
+    if (!isConnected.value) return
+
+    websocket.value.send(
+      JSON.stringify({
+        type,
+        action,
+        body
+      })
+    )
+  }
+
   return {
-    websocket
+    isConnected,
+    send
   }
 })

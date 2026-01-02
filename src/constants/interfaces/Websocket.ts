@@ -6,7 +6,7 @@ interface BaseMessage {
 }
 
 export interface ResponseMessage extends BaseMessage {
-  body: Partial<State> | string[]
+  body: State | string[]
 }
 
 export interface RequestMessage extends BaseMessage {
