@@ -5,7 +5,6 @@ import type {
 } from '@/constants/interfaces/Websocket'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { State } from '../constants/interfaces/State'
 import { useStore } from './store'
 
 export const useWebsocket = defineStore('websocket', () => {
@@ -26,13 +25,11 @@ export const useWebsocket = defineStore('websocket', () => {
     switch (message.type) {
       case MessageType.State:
         //TODO: deep merge instead of assigning?
-        store.state = message.body as State
+        store.state = message.body
         break
       case MessageType.Images:
-        store.images = message.body as string[]
+        store.images = message.body
         break
-      default:
-        console.warn('Unknown message type:', message.type)
     }
   })
 

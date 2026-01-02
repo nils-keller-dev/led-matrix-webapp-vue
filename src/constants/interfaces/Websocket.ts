@@ -1,15 +1,26 @@
 import type { MessageAction, MessageType } from '../enums/Message'
 import type { State } from './State'
 
-interface BaseMessage {
-  type: MessageType
-}
+export type ResponseMessage =
+  | {
+      type: MessageType.State
+      body: State
+    }
+  | {
+      type: MessageType.Images
+      body: string[]
+    }
 
-export interface ResponseMessage extends BaseMessage {
-  body: State | string[]
-}
-
-export interface RequestMessage extends BaseMessage {
-  action: MessageAction
-  body?: Partial<State> | string
-}
+export type RequestMessage = {
+  [K in MessageType]:
+    | {
+        type: K
+        action: MessageAction.Get
+        body: undefined
+      }
+    | {
+        type: K
+        action: Exclude<MessageAction, MessageAction.Get>
+        body: K extends MessageType.State ? Partial<State> : string
+      }
+}[MessageType]
