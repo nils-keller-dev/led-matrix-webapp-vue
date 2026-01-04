@@ -77,7 +77,7 @@ onMounted(() => {
           <div
             class="border-secondary relative flex size-full items-center justify-center rounded-3xl border"
           >
-            <Component :is="icon" class="size-32" />
+            <component :is="icon" class="size-32" />
             <div
               v-if="hasConfiguration"
               class="absolute flex h-full w-5/6 items-end justify-center pb-3"
