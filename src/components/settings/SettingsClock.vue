@@ -3,7 +3,6 @@ import { patchState } from '@/api/state.patch'
 import UiColorInput from '@/components/ui/UiColorInput.vue'
 import UiSlider from '@/components/ui/UiSlider.vue'
 import UiWrapper from '@/components/ui/UiWrapper.vue'
-import { useStore } from '@/store/store'
 import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
 
 defineProps<{
@@ -12,26 +11,18 @@ defineProps<{
   backgroundBrightness: number
 }>()
 
-const store = useStore()
-
 const updateColor = (color: string) => {
   const rgbColor = hexToRgb(color)
-  patchState({ clock: { color: rgbColor } }).then(() => {
-    store.state!.clock.color = rgbColor
-  })
+  patchState({ clock: { color: rgbColor } })
 }
 
 const updateBackgroundColor = (backgroundColor: string) => {
   const rgbColor = hexToRgb(backgroundColor)
-  patchState({ clock: { backgroundColor: rgbColor } }).then(() => {
-    store.state!.clock.backgroundColor = rgbColor
-  })
+  patchState({ clock: { backgroundColor: rgbColor } })
 }
 
 const updateBrightness = (backgroundBrightness: number) => {
-  patchState({ clock: { backgroundBrightness } }).then(() => {
-    store.state!.clock.backgroundBrightness = backgroundBrightness
-  })
+  patchState({ clock: { backgroundBrightness } })
 }
 </script>
 

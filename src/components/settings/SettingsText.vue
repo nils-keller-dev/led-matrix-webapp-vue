@@ -6,7 +6,6 @@ import UiSlider from '@/components/ui/UiSlider.vue'
 import UiTextArea from '@/components/ui/UiTextArea.vue'
 import UiWrapper from '@/components/ui/UiWrapper.vue'
 import { TextAlign } from '@/constants/enums/TextAlign'
-import { useStore } from '@/store/store'
 import { hexToRgb, rgbToHex } from '@/utils/ColorConversion'
 import { AlignCenter, AlignLeft } from 'lucide-vue-next'
 
@@ -18,38 +17,26 @@ defineProps<{
   color: number[]
 }>()
 
-const store = useStore()
-
 const updateAlign = (align: string) => {
   const alignValue = TextAlign[align as keyof typeof TextAlign]
-  patchState({ text: { align: alignValue } }).then(() => {
-    store.state!.text.align = alignValue
-  })
+  patchState({ text: { align: alignValue } })
 }
 
 const updateText = (text: string) => {
-  patchState({ text: { text } }).then(() => {
-    store.state!.text.text = text
-  })
+  patchState({ text: { text } })
 }
 
 const updateSpeed = (speed: number) => {
-  patchState({ text: { speed } }).then(() => {
-    store.state!.text.speed = speed
-  })
+  patchState({ text: { speed } })
 }
 
 const updateSize = (size: number) => {
-  patchState({ text: { size } }).then(() => {
-    store.state!.text.size = size
-  })
+  patchState({ text: { size } })
 }
 
 const updateColor = (color: string) => {
   const rgbColor = hexToRgb(color)
-  patchState({ text: { color: rgbColor } }).then(() => {
-    store.state!.text.color = rgbColor
-  })
+  patchState({ text: { color: rgbColor } })
 }
 </script>
 

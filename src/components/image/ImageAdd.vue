@@ -16,6 +16,8 @@ const onSelectFile = (e: Event) => {
   const target = e.target as HTMLInputElement
   const file = (target.files as FileList)[0]
 
+  if (!file) return
+
   fileName.value = file.name
 
   if (file.type === 'image/gif') {
@@ -54,8 +56,6 @@ const uploadFile = (file?: File) => {
         1
       ) ?? null
   })
-
-  store.images = [...store.images!, newFileName]
 
   imgSrc.value = `api/image/${fileName.value}`
   isModalOpen.value = false

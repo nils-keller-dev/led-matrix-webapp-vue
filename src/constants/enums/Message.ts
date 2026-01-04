@@ -5,7 +5,7 @@ export enum MessageType {
 
 export enum MessageAction {
   Post = 'post',
-  Update = 'update',
+  Patch = 'patch',
   Delete = 'delete',
   Get = 'get'
 }

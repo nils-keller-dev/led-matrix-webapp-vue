@@ -1,12 +1,7 @@
+import { MessageAction, MessageType } from '@/constants/enums/Message'
 import type { State } from '@/constants/interfaces/State'
-import { fetchWithCheck } from '@/utils/fetchWithCheck'
+import { useWebsocket } from '@/store/websocket'
 
 export const patchState = (state: Partial<State>) => {
-  return fetchWithCheck('/state', {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(state)
-  })
+  useWebsocket().send(MessageType.State, MessageAction.Patch, state)
 }

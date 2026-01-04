@@ -1,7 +1,6 @@
-import { fetchWithCheck } from '@/utils/fetchWithCheck'
+import { MessageAction, MessageType } from '@/constants/enums/Message'
+import { useWebsocket } from '@/store/websocket'
 
 export const deleteImage = (image: string) => {
-  return fetchWithCheck(`/image/${image}`, {
-    method: 'DELETE'
-  })
+  useWebsocket().send(MessageType.Images, MessageAction.Delete, image)
 }

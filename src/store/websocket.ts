@@ -6,6 +6,7 @@ import type {
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useStore } from './store'
+import { patchState } from '@/api/state.patch'
 
 export const useWebsocket = defineStore('websocket', () => {
   const websocket = ref(new WebSocket('/ws/'))
@@ -29,6 +30,12 @@ export const useWebsocket = defineStore('websocket', () => {
         break
       case MessageType.Images:
         store.images = message.body
+
+        const selectedImage = store.state?.image.image
+        if (selectedImage && !store.images.includes(selectedImage)) {
+          patchState({ image: { image: store.images[0] } })
+        }
+
         break
     }
   })

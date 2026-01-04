@@ -11,15 +11,11 @@ const version = packageJson.version
 const store = useStore()
 
 const updateAdaptive = (adaptive: boolean) => {
-  patchState({ global: { brightness: { adaptive } } }).then(() => {
-    store.state!.global.brightness!.adaptive = adaptive
-  })
+  patchState({ global: { brightness: { adaptive } } })
 }
 
 const updateNight = (night: number) => {
-  patchState({ global: { brightness: { night } } }).then(() => {
-    store.state!.global.brightness!.night = night
-  })
+  patchState({ global: { brightness: { night } } })
 }
 
 const onClickTip = () => {
