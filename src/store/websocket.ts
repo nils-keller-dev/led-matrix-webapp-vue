@@ -25,7 +25,6 @@ export const useWebsocket = defineStore('websocket', () => {
 
     switch (message.type) {
       case MessageType.State:
-        //TODO: deep merge instead of assigning?
         store.state = message.body
         break
       case MessageType.Images:
